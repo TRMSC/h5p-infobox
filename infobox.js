@@ -15,21 +15,24 @@ H5P.Infobox = (function ($) {
   };
  
   /**
-   * Attach function called by H5P framework to insert H5P content into
-   * page
+   * Attach function called by H5P framework to insert H5P content into page
    *
    * @param {jQuery} $container
    */
   C.prototype.attach = function ($container) {
-    $container.append('<div class="infobox-text">' + this.options.introtext + '</div>');
     // Set class on container to identify it as an infobox container. 
     $container.addClass("h5p-infobox");
+    if (this.options.introtext) {
+      $container.append('<div class="infobox-text">' + this.options.introtext + '</div>');
+    }
     // Add image if provided.
     if (this.options.image && this.options.image.path) {
       $container.append('<img class="infobox-image" src="' + H5P.getPath(this.options.image.path, this.id) + '">');
     }
     // Add extension text.
-    $container.append('<div class="infobox-text">' + this.options.extensiontext + '</div>');
+    if (this.options.extensiontext) {
+      $container.append('<div class="infobox-text">' + this.options.extensiontext + '</div>');
+    }
   };
  
   return C;
