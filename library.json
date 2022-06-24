@@ -6,7 +6,7 @@
   "patchVersion": 0,
   "runnable": 1,
   "author": "TRMSC",
-  "license": "cc-by-sa",
+  "license": "MIT",
   "machineName": "H5P.Infobox",
   "coreApi": {
     "majorVersion": 1,
