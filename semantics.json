@@ -4,7 +4,7 @@
       "name": "header", 
       "type": "text", 
       "default": "Here is space for an infobox header.", 
-      "description": "The text displayed to the end user. OPTIONAL",
+      "description": "The header displayed to the end user. OPTIONAL",
       "optional": true
     },
     { 
