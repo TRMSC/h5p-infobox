@@ -1,16 +1,57 @@
 [ 
     { 
-      "label": "Text", 
-      "name": "content", 
+      "label": "Header", 
+      "name": "header", 
       "type": "text", 
-      "default": "Here are some information.", 
-      "description": "The text displayed to the end user."
-    }, 
+      "default": "Here is space for an infobox header.", 
+      "description": "The text displayed to the end user. OPTIONAL",
+      "optional": true
+    },
+    { 
+      "label": "Introduction text", 
+      "name": "introtext", 
+      "type": "text", 
+      "widget": "html",
+      "tags": [
+        "p",
+        "br",
+        "strong",
+        "em",
+        "code"
+      ],
+      "default": "Here is space for first information.", 
+      "description": "The text displayed to the end user. OPTIONAL",
+      "optional": true
+    },
     {
       "label": "Image",
       "name": "image",
       "type": "image",
-      "optional": true,
-      "description": "Image shown on card, optional. Without this the card will show just the text."
+      "description": "The image displayed to the end user. OPTIONAL",
+      "optional": true
+    },
+    { 
+      "label": "Extension text", 
+      "name": "extensiontext", 
+      "type": "text", 
+      "widget": "html",
+      "tags": [
+        "p",
+        "br",
+        "strong",
+        "em",
+        "code"
+      ],
+      "default": "Here is a space for further information.", 
+      "description": "The text displayed to the end user. OPTIONAL",
+      "optional": true
+    },
+    {
+      "label": "Checkbox for later",
+      "name": "checkbox",
+      "type": "boolean",
+      "default": false,
+      "description": "This is a checkbox for later.",
+      "optional": true
     }
   ]

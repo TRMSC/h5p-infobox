@@ -1,21 +1,21 @@
 {
-    "title": "Simple Page",
-    "description": "Displays a simple information page with confirmation",
+  "title": "Infobox",
+  "description": "Displays a simple information box with text, image and confirmation.",
+  "majorVersion": 0,
+  "minorVersion": 1,
+  "patchVersion": 0,
+  "runnable": 1,
+  "author": "TRMSC",
+  "license": "cc-by-sa",
+  "machineName": "H5P.Infobox",
+  "coreApi": {
     "majorVersion": 1,
-    "minorVersion": 0,
-    "patchVersion": 1,
-    "runnable": 1,
-    "author": "TRMSC",
-    "license": "cc-by-sa",
-    "machineName": "H5P.SimplePage",
-    "coreApi": {
-      "majorVersion": 1,
-      "minorVersion": 0
-    },
-    "preloadedJs": [
-      { "path": "simplepage.js" }
-    ],
-    "preloadedCss": [
-      {"path": "simplepage.css"}
-    ]
-  }
+    "minorVersion": 0
+  },
+  "preloadedJs": [
+    { "path": "infobox.js" }
+  ],
+  "preloadedCss": [
+    {"path": "infobox.css"}
+  ]
+}

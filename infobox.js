@@ -21,15 +21,15 @@ H5P.SimplePage = (function ($) {
    * @param {jQuery} $container
    */
   C.prototype.attach = function ($container) {
-    // Set class on container to identify it as a greeting card
-    // container.  Allows for styling later.
-    $container.addClass("h5p-simplepage");
+    $container.append('<div class="infobox-text">' + this.options.introtext + '</div>');
+    // Set class on container to identify it as an infobox container. 
+    $container.addClass("h5p-infobox");
     // Add image if provided.
     if (this.options.image && this.options.image.path) {
-      $container.append('<img class="simplepage-image" src="' + H5P.getPath(this.options.image.path, this.id) + '">');
+      $container.append('<img class="infobox-image" src="' + H5P.getPath(this.options.image.path, this.id) + '">');
     }
-    // Add greeting text.
-    $container.append('<div class="simplepage-text">' + this.options.content + '</div>');
+    // Add extension text.
+    $container.append('<div class="infobox-text">' + this.options.extensiontext + '</div>');
   };
  
   return C;

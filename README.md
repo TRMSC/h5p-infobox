@@ -1,1 +1,1 @@
-# Simple Page
+# Infobox
