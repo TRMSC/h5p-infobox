@@ -1,0 +1,21 @@
+{
+    "title": "Simple Page",
+    "description": "Displays a simple information page with confirmation",
+    "majorVersion": 1,
+    "minorVersion": 0,
+    "patchVersion": 1,
+    "runnable": 1,
+    "author": "TRMSC",
+    "license": "cc-by-sa",
+    "machineName": "H5P.SimplePage",
+    "coreApi": {
+      "majorVersion": 1,
+      "minorVersion": 0
+    },
+    "preloadedJs": [
+      { "path": "simplepage.js" }
+    ],
+    "preloadedCss": [
+      {"path": "simplepage.css"}
+    ]
+  }
