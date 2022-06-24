@@ -61,5 +61,13 @@
       "default": false,
       "description": "This is a checkbox for later.",
       "optional": true
+    },
+    {
+      "label": "Number for later",
+      "name": "number",
+      "description": "This is a number field for later.",
+      "type": "number",
+      "default": 10,
+      "min": 0,
     }
   ]
