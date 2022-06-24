@@ -1,14 +1,14 @@
-.h5p-simplepage {
+.h5p-infobox {
     width: 400px;
     margin: 0 auto;
     border: 1px solid #ccc;
     box-shadow: 2px 2px 4px #ccc;
   }
-  .h5p-simplepage .simplepage-image {
+  .h5p-infobox .infobox-image {
     width: 100%;
     height: auto;
   }
-  .h5p-greetingcard .simplepage-text {
+  .h5p-infobox .infobox-text {
     width: auto;
     margin: 16px;
     font-family: fantasy;
