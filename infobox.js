@@ -20,16 +20,16 @@ H5P.Infobox = (function ($) {
    * @param {jQuery} $container
    */
   C.prototype.attach = function ($container) {
-    // Set class on container to identify it as an infobox container. 
     $container.addClass("h5p-infobox");
+    if (this.options.header) {
+      $container.append('<div class="infobox-header">' + this.options.header + '</div>');
+    }
     if (this.options.introtext) {
       $container.append('<div class="infobox-text">' + this.options.introtext + '</div>');
     }
-    // Add image if provided.
     if (this.options.image && this.options.image.path) {
       $container.append('<img class="infobox-image" src="' + H5P.getPath(this.options.image.path, this.id) + '">');
     }
-    // Add extension text.
     if (this.options.extensiontext) {
       $container.append('<div class="infobox-text">' + this.options.extensiontext + '</div>');
     }
