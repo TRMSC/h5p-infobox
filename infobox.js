@@ -1,6 +1,6 @@
 var H5P = H5P || {};
  
-H5P.SimplePage = (function ($) {
+H5P.Infobox = (function ($) {
   /**
    * Constructor function.
    */
