@@ -45,13 +45,5 @@
       "default": "Here is a space for further information.", 
       "description": "The text displayed to the end user. OPTIONAL",
       "optional": true
-    },
-    {
-      "label": "Checkbox for later",
-      "name": "checkbox",
-      "type": "boolean",
-      "default": false,
-      "description": "This is a checkbox for later.",
-      "optional": true
     }
   ]
