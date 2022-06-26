@@ -1,6 +1,10 @@
 var H5P = H5P || {};
  
 H5P.Infobox = (function ($) {
+
+  var MAX_SCORE = 1;
+  console.log ("MAX_SCORE is " + MAX_SCORE);
+
   /**
    * Constructor function.
    */
