@@ -4,13 +4,11 @@ H5P.Infobox = (function ($) {
   /**
    * Constructor function.
    */
-  function C(options, id) {
-    // Extend defaults with provided options
+  function constructor(options, id) {
     this.options = $.extend(true, {}, {
-      content: 'Hello world!',
+      content: null,
       image: null
     }, options);
-    // Keep provided id.
     this.id = id;
   };
  
@@ -19,7 +17,7 @@ H5P.Infobox = (function ($) {
    *
    * @param {jQuery} $container
    */
-  C.prototype.attach = function ($container) {
+  constructor.prototype.attach = function ($container) {
     $container.addClass("h5p-infobox");
     if (this.options.header) {
       $container.append('<div class="infobox-header">' + this.options.header + '</div>');
@@ -35,5 +33,5 @@ H5P.Infobox = (function ($) {
     }
   };
  
-  return C;
+  return constructor;
 })(H5P.jQuery);
