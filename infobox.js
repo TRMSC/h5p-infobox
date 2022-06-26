@@ -22,6 +22,8 @@ H5P.Infobox = (function ($) {
    * @param {jQuery} $container
    */
   constructor.prototype.attach = function ($container) {
+
+    // Build framework
     $container.addClass("h5p-infobox");
     if (this.options.header) {
       $container.append('<div class="infobox-header">' + this.options.header + '</div>');
@@ -35,7 +37,14 @@ H5P.Infobox = (function ($) {
     if (this.options.extensiontext) {
       $container.append('<div class="infobox-text">' + this.options.extensiontext + '</div>');
     }
-    $container.append('<div class="infobox-durationcontainer"></div>');
+
+    // Add duration elements
+    $container.append('<div id="infobox-durationcontainer"></div>');
+    var durationstatus = document.createElement('div');
+    var durationcontainer = document.getElementById('infobox-durationcontainer');
+    durationcontainer.appendChild(durationstatus);
+    durationstatus.setAttribute("id", "infobox-durationstatus");
+
   };
  
   return constructor;
