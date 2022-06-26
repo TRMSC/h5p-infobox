@@ -35,6 +35,7 @@ H5P.Infobox = (function ($) {
     if (this.options.extensiontext) {
       $container.append('<div class="infobox-text">' + this.options.extensiontext + '</div>');
     }
+    $container.append('<div class="infobox-durationcontainer"></div>');
   };
  
   return constructor;
