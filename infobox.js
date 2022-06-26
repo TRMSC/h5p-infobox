@@ -44,6 +44,8 @@ H5P.Infobox = (function ($) {
     var durationcontainer = document.getElementById('infobox-durationcontainer');
     durationcontainer.appendChild(durationstatus);
     durationstatus.setAttribute("id", "infobox-durationstatus");
+    var progress = this.options.duration;
+    durationstatus.style.animation = "progress linear " + progress + "s";
 
   };
  
