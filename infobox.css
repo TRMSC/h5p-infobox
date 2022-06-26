@@ -27,7 +27,6 @@
     height: 100%;
     width: 0%;
     background-color: green;
-    /* animation: progress 20s linear; */
     animation-fill-mode: forwards!important;
 }
 
