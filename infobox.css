@@ -18,12 +18,12 @@
   line-height: 24px;
   text-align: center;
 }
-#infobox-durationcontainer {
+.infobox-durationcontainer {
   height: 20px;
   border: 1px solid #ccc;
   box-shadow: 0px 0px 5px 1px #ccc;
 }
-#infobox-durationstatus {
+.infobox-durationstatus {
   height: 100%;
   width: 0%;
   background-color: green;

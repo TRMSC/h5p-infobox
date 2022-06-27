@@ -8,7 +8,7 @@ H5P.Infobox = (function ($) {
   /**
    * Constructor function.
    */
-  function constructor(options, id) {
+  function Constructor(options, id) {
     this.options = $.extend(true, {}, {
       content: null,
       image: null
@@ -21,7 +21,7 @@ H5P.Infobox = (function ($) {
    *
    * @param {jQuery} $container
    */
-  constructor.prototype.attach = function ($container) {
+  Constructor.prototype.attach = function ($container) {
 
     // Build framework
     $container.addClass("h5p-infobox");
@@ -38,16 +38,15 @@ H5P.Infobox = (function ($) {
       $container.append('<div class="infobox-text">' + this.options.extensiontext + '</div>');
     }
 
+    console.log(this);
+    console.log(this.id);
+    console.log($container);
+
     // Add duration elements
-    $container.append('<div id="infobox-durationcontainer"></div>');
-    var durationstatus = document.createElement('div');
-    var durationcontainer = document.getElementById('infobox-durationcontainer');
-    durationcontainer.appendChild(durationstatus);
-    durationstatus.setAttribute("id", "infobox-durationstatus");
     var progress = this.options.duration;
-    durationstatus.style.animation = "progress linear " + progress + "s";
+    $container.append('<div class="infobox-durationcontainer"><div class="infobox-durationstatus" style="animation: progress linear ' + progress + 's"></div></div>');
 
   };
- 
-  return constructor;
+
+  return Constructor;
 })(H5P.jQuery);
