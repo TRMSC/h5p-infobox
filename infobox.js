@@ -55,7 +55,7 @@ H5P.Infobox = (function ($) {
     // Add duration elements
     var progress = this.options.duration;
     $container.append('<div class="infobox-durationcontainer"><div class="infobox-durationstatus" style="animation: progress linear ' + progress + 's"></div></div>');
-    
+  
     // JoubelUI
     var $button = H5P.JoubelUI.createButton({
       title: 'Retry',
