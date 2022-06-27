@@ -2,7 +2,7 @@ var H5P = H5P || {};
  
 H5P.Infobox = (function ($) {
 
-  var MAX_SCORE = 1;
+  var MAX_SCORE = 2;
   console.log ("MAX_SCORE is " + MAX_SCORE);
 
   /**
@@ -14,12 +14,26 @@ H5P.Infobox = (function ($) {
       image: null
     }, options);
     this.id = id;
+
+    // JoubelUI
+    if (this.options.task) {
+      // Initialize task
+      this.task = H5P.newRunnable(this.options.task, this.id);
+     
+      // Trigger resize events on the task:
+      this.on('resize', function (event) {
+        this.task.trigger('resize', event);
+      });
+    }
+
   };
  
   /**
    * Attach function called by H5P framework to insert H5P content into page
    *
    * @param {jQuery} $container
+   * @param {jQuery} $button
+   * @param {jQuery} $taskHolder
    */
   Constructor.prototype.attach = function ($container) {
 
@@ -42,35 +56,21 @@ H5P.Infobox = (function ($) {
     var progress = this.options.duration;
     $container.append('<div class="infobox-durationcontainer"><div class="infobox-durationstatus" style="animation: progress linear ' + progress + 's"></div></div>');
     
-    /*
-    var Button = Object.freeze ({
-      CHECK: 'check-answer'
-    });
-    self.addButton(Button.CHECK, function() {alert('Hallo')});
-    
-    var $scoreBar = H5P.JoubelUI.createScoreBar(10, 'This is a scorebar');
+    // JoubelUI
     var $button = H5P.JoubelUI.createButton({
       title: 'Retry',
+      value: 'Retry',
+      label: 'Retry',
       click: function (event) {
         console.log('Retry was clicked');
       }
     });
+    var $taskHolder = $('<div>');
+    $container.append($taskHolder);
+    $taskHolder.append($button);
 
-    self.addButton(Button.CHECK, params.l10n.checkAnswer, function () {
-      alert("check!");
-    }, true, {
-      'aria-label': params.l10n.a11yCheck
-    }, {
-      confirmationDialog: {
-        enable: params.behaviour.confirmCheckDialog,
-        l10n: params.confirmCheck,
-        instance: self,
-        $parentElement: $container
-      },
-      contentData: self.contentData,
-      textIfSubmitting: params.l10n.submitAnswer,
-    });
-    */
+    console.log ($taskHolder);
+    console.log ($button);
 
   };
 

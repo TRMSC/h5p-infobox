@@ -62,5 +62,13 @@
       "default": 10,
       "min": 0,
       "optional": false
+    },
+    {
+      "name": "task",
+      "type": "library",
+      "label": "Task",
+      "options": [
+        "H5P.JoubelUI 1.3"
+      ]
     }
   ]
