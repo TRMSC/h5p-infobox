@@ -41,6 +41,36 @@ H5P.Infobox = (function ($) {
     // Add duration elements
     var progress = this.options.duration;
     $container.append('<div class="infobox-durationcontainer"><div class="infobox-durationstatus" style="animation: progress linear ' + progress + 's"></div></div>');
+    
+    /*
+    var Button = Object.freeze ({
+      CHECK: 'check-answer'
+    });
+    self.addButton(Button.CHECK, function() {alert('Hallo')});
+    
+    var $scoreBar = H5P.JoubelUI.createScoreBar(10, 'This is a scorebar');
+    var $button = H5P.JoubelUI.createButton({
+      title: 'Retry',
+      click: function (event) {
+        console.log('Retry was clicked');
+      }
+    });
+
+    self.addButton(Button.CHECK, params.l10n.checkAnswer, function () {
+      alert("check!");
+    }, true, {
+      'aria-label': params.l10n.a11yCheck
+    }, {
+      confirmationDialog: {
+        enable: params.behaviour.confirmCheckDialog,
+        l10n: params.confirmCheck,
+        instance: self,
+        $parentElement: $container
+      },
+      contentData: self.contentData,
+      textIfSubmitting: params.l10n.submitAnswer,
+    });
+    */
 
   };
 
