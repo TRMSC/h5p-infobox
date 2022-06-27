@@ -15,7 +15,6 @@ H5P.Infobox = (function ($) {
     }, options);
     this.id = id;
 
-    // JoubelUI
     if (this.options.task) {
       // Initialize task
       this.task = H5P.newRunnable(this.options.task, this.id);
@@ -32,8 +31,6 @@ H5P.Infobox = (function ($) {
    * Attach function called by H5P framework to insert H5P content into page
    *
    * @param {jQuery} $container
-   * @param {jQuery} $button
-   * @param {jQuery} $taskHolder
    */
   Constructor.prototype.attach = function ($container) {
 
@@ -55,22 +52,6 @@ H5P.Infobox = (function ($) {
     // Add duration elements
     var progress = this.options.duration;
     $container.append('<div class="infobox-durationcontainer"><div class="infobox-durationstatus" style="animation: progress linear ' + progress + 's"></div></div>');
-  
-    // JoubelUI
-    var $button = H5P.JoubelUI.createButton({
-      title: 'Retry',
-      value: 'Retry',
-      label: 'Retry',
-      click: function (event) {
-        console.log('Retry was clicked');
-      }
-    });
-    var $taskHolder = $('<div>');
-    $container.append($taskHolder);
-    $taskHolder.append($button);
-
-    console.log ($taskHolder);
-    console.log ($button);
 
   };
 
