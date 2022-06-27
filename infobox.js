@@ -38,10 +38,6 @@ H5P.Infobox = (function ($) {
       $container.append('<div class="infobox-text">' + this.options.extensiontext + '</div>');
     }
 
-    console.log(this);
-    console.log(this.id);
-    console.log($container);
-
     // Add duration elements
     var progress = this.options.duration;
     $container.append('<div class="infobox-durationcontainer"><div class="infobox-durationstatus" style="animation: progress linear ' + progress + 's"></div></div>');
