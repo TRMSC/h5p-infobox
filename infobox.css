@@ -1,36 +1,36 @@
 .h5p-infobox {
-    width: 400px;
-    margin: 20px auto;
-    padding: 10px;
-    border: 1px solid #ccc;
-    box-shadow: 2px 2px 4px #ccc;
+  width: 400px;
+  margin: 20px auto;
+  padding: 10px;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 4px #ccc;
 }
 .h5p-infobox .infobox-image {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 }
 .h5p-infobox .infobox-text {
-    width: auto;
-    margin: 16px;
-    font-family: fantasy;
-    font-size: 20px;
-    font-weight: bold;
-    line-height: 24px;
-    text-align: center;
+  width: auto;
+  margin: 16px;
+  font-family: fantasy;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 24px;
+  text-align: center;
 }
 #infobox-durationcontainer {
-    height: 20px;
-    border: 1px solid #ccc;
-    box-shadow: 0px 0px 5px 1px #ccc;
+  height: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0px 0px 5px 1px #ccc;
 }
 #infobox-durationstatus {
-    height: 100%;
-    width: 0%;
-    background-color: green;
-    animation-fill-mode: forwards!important;
+  height: 100%;
+  width: 0%;
+  background-color: green;
+  animation-fill-mode: forwards!important;
 }
 
 @keyframes progress {
-    from {width: 0%;}
-    to {width: 100%;}
+  from {width: 0%;}
+  to {width: 100%;}
 }
