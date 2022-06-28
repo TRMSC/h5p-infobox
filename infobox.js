@@ -51,9 +51,26 @@ H5P.Infobox = (function ($) {
 
     // Add duration elements
     var progress = this.options.duration;
+    checkTime (progress);
     $container.append('<div class="infobox-durationcontainer"><div class="infobox-durationstatus" style="animation: progress linear ' + progress + 's"></div></div>');
 
   };
+
+  /**
+   * Improve timer
+   *
+   */
+  function checkTime (progress) {
+    var time = 0;
+    var interval = setInterval( function(){
+        time ++;
+        console.log (time);
+        if (time == progress) {
+          clearInterval(interval);
+          console.log ('check'); 
+          return;}
+    }, 1000);
+  }
 
   return Constructor;
 })(H5P.jQuery);
