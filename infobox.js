@@ -33,6 +33,7 @@ H5P.Infobox = (function ($) {
    * @param {jQuery} $container
    */
   Constructor.prototype.attach = function ($container) {
+    var self = this;
 
     // Build framework
     $container.addClass("h5p-infobox");
@@ -67,10 +68,43 @@ H5P.Infobox = (function ($) {
         console.log (time);
         if (time == progress) {
           clearInterval(interval);
-          console.log ('check'); 
+          console.log ('check');
+          H5P.EventDispatcher.call(this);
+          triggerXAPIAnswered(); 
+
+getXAPIData();
+
           return;}
     }, 1000);
-  }
+  };
+
+  // --------------------------
+
+  /**
+   * Creates and triggers the xAPI answered event
+   *
+   * @method triggerXAPIAnswered
+   * @private
+   * @fires xAPIEvent
+   */
+  var triggerXAPIAnswered = function () {
+    var xAPIEvent = this.createXAPIEventTemplate('answered');
+    //self.triggerXAPI('interacted');
+    //addQuestionToXAPI(xAPIEvent);
+    //addResponseToXAPI(xAPIEvent);
+    self.trigger(xAPIEvent);
+    console.log ('xapi');
+  };
+
+  /*
+  this.getXAPIData = function(){
+    var xAPIEvent = this.createXAPIEventTemplate('answered');
+    self.trigger(xAPIEvent);
+    console.log ('xapi');
+   };
+  */
+  
+  // --------------------------
 
   return Constructor;
 })(H5P.jQuery);
