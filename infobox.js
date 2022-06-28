@@ -14,7 +14,6 @@ H5P.Infobox = (function ($) {
       image: null
     }, options);
     this.id = id;
-
     if (this.options.task) {
       // Initialize task
       this.task = H5P.newRunnable(this.options.task, this.id);
@@ -59,7 +58,7 @@ H5P.Infobox = (function ($) {
 
   /**
    * Improve timer
-   *
+   * 
    */
   function checkTime (progress) {
     var time = 0;
@@ -69,10 +68,7 @@ H5P.Infobox = (function ($) {
         if (time == progress) {
           clearInterval(interval);
           console.log ('check');
-          H5P.EventDispatcher.call(this);
           triggerXAPIAnswered(); 
-
-getXAPIData();
 
           return;}
     }, 1000);
