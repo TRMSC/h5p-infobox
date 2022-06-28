@@ -75,7 +75,6 @@ H5P.Infobox = (function ($) {
   };
 
   // --------------------------
-
   /**
    * Creates and triggers the xAPI answered event
    *
@@ -84,7 +83,8 @@ H5P.Infobox = (function ($) {
    * @fires xAPIEvent
    */
   var triggerXAPIAnswered = function () {
-    var xAPIEvent = this.createXAPIEventTemplate('answered');
+    //var xAPIEvent = this.createXAPIEventTemplate('answered');
+    var xAPIEvent = this.createXAPIEvent('answered');
     //self.triggerXAPI('interacted');
     //addQuestionToXAPI(xAPIEvent);
     //addResponseToXAPI(xAPIEvent);
