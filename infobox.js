@@ -86,7 +86,8 @@ H5P.Infobox = (function ($) {
           console.log ('check');
           //triggerXAPIAnswered(); 
           //self.trigger(xAPIEvent);
-          createXAPIEvent();
+          //createXAPIEvent();
+          triggerXAPI('interacted');
 
           return;}
     }, 1000);
