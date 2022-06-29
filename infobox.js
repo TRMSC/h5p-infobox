@@ -70,15 +70,13 @@ H5P.Infobox = (function ($) {
       return xAPIEvent;
     };
 
-  };
-
-  /**
-   * Improve timer
-   * 
-   */
-  function checkTime (progress) {
-    var time = 0;
-    var interval = setInterval( function(){
+    /**
+     * Improve timer
+     * 
+     */
+    function checkTime (progress) {
+      var time = 0;
+      var interval = setInterval( function(){
         time ++;
         console.log (time);
         if (time == progress) {
@@ -87,11 +85,17 @@ H5P.Infobox = (function ($) {
           //triggerXAPIAnswered(); 
           //self.trigger(xAPIEvent);
           //createXAPIEvent();
-          triggerXAPI('interacted');
+          self.triggerXAPI('answered');
+          //triggerXAPIComplete(2, 2, 'success');
 
           return;}
-    }, 1000);
+      }, 1000);
+    };
+
+  //this.triggerXAPI('interacted');
   };
+
+// OLD TIMER
 
   // --------------------------
   /**
