@@ -81,10 +81,7 @@ H5P.Infobox = (function ($) {
         console.log (time);
         if (time == progress) {
           clearInterval(interval);
-          console.log ('check');
-          //triggerXAPIAnswered(); 
-          //self.trigger(xAPIEvent);
-          //createXAPIEvent();
+          console.log ('trigger xapi event');
           self.triggerXAPI('answered');
           //triggerXAPIComplete(2, 2, 'success');
 
@@ -92,10 +89,8 @@ H5P.Infobox = (function ($) {
       }, 1000);
     };
 
-  //this.triggerXAPI('interacted');
-  };
 
-// OLD TIMER
+  };
 
   // --------------------------
   /**
@@ -122,14 +117,6 @@ H5P.Infobox = (function ($) {
       this.getxAPIDefinition());
     return xAPIEvent;
   };
-
-  /*
-  this.getXAPIData = function(){
-    var xAPIEvent = this.createXAPIEventTemplate('answered');
-    self.trigger(xAPIEvent);
-    console.log ('xapi');
-   };
-  */
   
   // --------------------------
 
