@@ -3,7 +3,6 @@ var H5P = H5P || {};
 H5P.Infobox = (function ($) {
 
   var MAX_SCORE = 2;
-  console.log ("MAX_SCORE is " + MAX_SCORE);
 
   /**
    * Constructor function.
@@ -89,36 +88,6 @@ H5P.Infobox = (function ($) {
       }, 1000);
     };
 
-
   };
-
-  // --------------------------
-  /**
-   * Creates and triggers the xAPI answered event
-   *
-   * @method triggerXAPIAnswered
-   * @private
-   * @fires xAPIEvent
-   */
-  //var triggerXAPIAnswered = function () {
-    //var xAPIEvent = this.createXAPIEventTemplate('answered');
-    //var xAPIEvent = this.createXAPIEvent('answered');
-    //self.triggerXAPI('interacted');
-    //addQuestionToXAPI(xAPIEvent);
-    //addResponseToXAPI(xAPIEvent);
-    //self.trigger(xAPIEvent);
-    //console.log ('xapi');
-  //};
-
-  this.createXAPIEvent = (verb) => {
-    const xAPIEvent = this.createXAPIEventTemplate(verb);
-    extend(
-      xAPIEvent.getVerifiedStatementValue(['object', 'definition']),
-      this.getxAPIDefinition());
-    return xAPIEvent;
-  };
-  
-  // --------------------------
-
   return Constructor;
 })(H5P.jQuery,);
