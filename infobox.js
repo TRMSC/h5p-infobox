@@ -13,6 +13,11 @@ H5P.Infobox = (function ($) {
       image: null
     }, options);
     this.id = id;
+    this.params = $.extend({
+      l10n: {
+        checkAnswer: 'Check answer',
+      }
+    }, this.params);
   };
  
   /**
@@ -43,6 +48,21 @@ H5P.Infobox = (function ($) {
     checkTime (progress);
     $container.append('<div class="infobox-durationcontainer"><div class="infobox-durationstatus" style="animation: progress linear ' + progress + 's"></div></div>');
     
+    /**
+     * Register the DOM elements with H5P.Question
+     */
+    this.registerDomElements = () => {
+      this.addButtons();
+    };
+    this.addButtons = () => {
+      // Check answer button
+      this.addButton('check-answer', this.params.l10n.checkAnswer, () => {
+        // TODO: Implement something useful to do on click
+        this.hideButton('check-answer');
+      }, false, {}, {});
+    };
+        
+
     /**
      * Get xAPI data.
      *
@@ -87,6 +107,7 @@ H5P.Infobox = (function ($) {
           return;}
       }, 1000);
     };
+
 
   };
   return Constructor;
