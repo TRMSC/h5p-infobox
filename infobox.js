@@ -62,7 +62,6 @@ H5P.Infobox = (function ($) {
       }, false, {}, {});
     };
         
-
     /**
      * Get xAPI data.
      *
