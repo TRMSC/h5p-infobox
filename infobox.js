@@ -45,52 +45,19 @@ H5P.Infobox = (function ($) {
     if (this.options.extensiontext) {
       $container.append('<div class="infobox-text">' + this.options.extensiontext + '</div>');
     }
-    $container.append('<button class="h5p-question-check-answer h5p-joubelui-button">Check</div>');
 
     // Add duration elements
     var progress = this.options.duration;
     checkTime (progress);
     $container.append('<div class="infobox-durationcontainer"><div class="infobox-durationstatus" style="animation: progress linear ' + progress + 's"></div></div>');
     
-    /**
-     * Register the DOM elements with H5P.Question
-     */
-/*
-    this.registerDomElements = () => {
-      this.addButtons();
-    };
-    self.addButtons = () => {
-      // Check answer button
-      $container.addButton('check-answer', this.params.l10n.checkAnswer, () => {
-        var $taskHolder = $('<div>');
-        $container.append($taskHolder);
-        $taskHolder.append(this);
-        // TODO: Implement something useful to do on click
-        this.showButton('check-answer');
-      }, false, {}, {});
-    };
-    self.addButtons();
-*/
-    //self.showButton('check-answer');
-
-
-    // JoubelUI
-/*
-    var $button = H5P.Infobox.createButton({
-      title: 'Retry',
-      value: 'Retry',
-      label: 'Retry',
-      click: function (event) {
-        console.log('Retry was clicked');
-      }
-    });
-    var $taskHolder = $('<div>');
-    $container.append($taskHolder);
-    $taskHolder.append($button);
-
-    console.log ($taskHolder);
-    console.log ($button);
-*/
+    // Add buttons
+    var $buttons = $('<div/>', {
+      'class': 'infobox-buttons'
+    }).appendTo($container);
+    //}).hide()
+    //  .appendTo($container);
+    $buttons.append('<button class="h5p-question-check-answer h5p-joubelui-button">' + this.options.check + '</div>');
         
     /**
      * Get xAPI data.

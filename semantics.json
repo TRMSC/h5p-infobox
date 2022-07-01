@@ -64,6 +64,14 @@
       "optional": false
     },
     {
+      "label": "Value for the check button",
+      "name": "check",
+      "description": "Text for the check button.",
+      "type": "text",
+      "default": "finished",
+      "optional": "false"
+    },
+    {
       "name": "task",
       "type": "library",
       "label": "Task",
