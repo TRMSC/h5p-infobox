@@ -68,7 +68,7 @@
       "name": "check",
       "description": "Text for the check button.",
       "type": "text",
-      "default": "finished",
+      "default": "Finished",
       "optional": "false"
     },
     {
