@@ -15,7 +15,10 @@ H5P.Infobox = (function ($) {
     this.id = id;
     this.params = $.extend({
       l10n: {
-        checkAnswer: 'Check answer',
+        checkAnswer: 'Check answer'
+      },
+      behavoir: {
+        enableCheckButton: true
       }
     }, this.params);
   };
@@ -54,13 +57,29 @@ H5P.Infobox = (function ($) {
     this.registerDomElements = () => {
       this.addButtons();
     };
-    this.addButtons = () => {
+    self.addButtons = () => {
       // Check answer button
-      this.addButton('check-answer', this.params.l10n.checkAnswer, () => {
+      $container.addButton('check-answer', this.params.l10n.checkAnswer, () => {
+        var $taskHolder = $('<div>');
+        $container.append($taskHolder);
+        $taskHolder.append(this);
         // TODO: Implement something useful to do on click
         this.hideButton('check-answer');
       }, false, {}, {});
     };
+    self.addButtons();
+    // var $button = self.createButton ({
+    //   title: 'Retry',
+    //   value: 'Retry',
+    //   label: 'Retry',
+    //   click: function (event) {
+    //     console.log('Retry was clicked');
+    //   }
+    // });
+    // var $taskHolder = $('<div>');
+    // $container.append($taskHolder);
+    // $taskHolder.append($button);
+    
         
     /**
      * Get xAPI data.
