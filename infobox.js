@@ -7,7 +7,7 @@ H5P.Infobox = (function ($) {
   /**
    * Constructor function.
    */
-  function Constructor(options, id, params) {
+  function Constructor(options, id, params, behaviour) {
     this.options = $.extend(true, {}, {
       content: null,
       image: null
@@ -64,10 +64,12 @@ H5P.Infobox = (function ($) {
         $container.append($taskHolder);
         $taskHolder.append(this);
         // TODO: Implement something useful to do on click
-        this.hideButton('check-answer');
+        this.showButton('check-answer');
       }, false, {}, {});
     };
     self.addButtons();
+    //self.showButton('check-answer');
+
     // var $button = self.createButton ({
     //   title: 'Retry',
     //   value: 'Retry',
