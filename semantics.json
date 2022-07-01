@@ -70,13 +70,5 @@
       "type": "text",
       "default": "Finished",
       "optional": "false"
-    },
-    {
-      "name": "task",
-      "type": "library",
-      "label": "Task",
-      "options": [
-        "H5P.JoubelUI 1.3"
-      ]
     }
   ]
