@@ -13,14 +13,6 @@ H5P.Infobox = (function ($) {
       image: null
     }, options);
     this.id = id;
-    this.params = $.extend({
-      l10n: {
-        checkAnswer: 'Check answer'
-      },
-      behavoir: {
-        enableCheckButton: true
-      }
-    }, this.params);
   };
  
   /**
