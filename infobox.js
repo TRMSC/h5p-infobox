@@ -82,6 +82,7 @@ H5P.Infobox = (function ($) {
      * 
      */
     function checkTime (progress) {
+    //var checkTime = function (progress) {
       var time = 0;
       var interval = setInterval( function(){
         time ++;
@@ -89,9 +90,10 @@ H5P.Infobox = (function ($) {
         if (time == progress) {
           clearInterval(interval);
           console.log ('trigger xapi event');
+          var xAPIEvent = self.createXAPIEventTemplate('answered');
+          xAPIEvent.setScoredResult(1, MAX_SCORE, self, true, 'success');
           self.triggerXAPI('answered');
-          //triggerXAPIComplete(2, 2, 'success');
-
+          //self.triggerXAPIComplete(2, 2, 'success');
           return;}
       }, 1000);
     };
