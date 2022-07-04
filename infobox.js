@@ -7,7 +7,7 @@ H5P.Infobox = (function ($) {
   /**
    * Constructor function.
    */
-  function Constructor(options, id, params) {
+  function Constructor(options, id, params, behaviour) {
     this.options = $.extend(true, {}, {
       content: null,
       image: null
@@ -43,6 +43,14 @@ H5P.Infobox = (function ($) {
     checkTime (progress);
     $container.append('<div class="infobox-durationcontainer"><div class="infobox-durationstatus" style="animation: progress linear ' + progress + 's"></div></div>');
     
+    // Add buttons
+    var $buttons = $('<div/>', {
+      'class': 'infobox-buttons'
+    }).appendTo($container);
+    //}).hide()
+    //  .appendTo($container);
+    $buttons.append('<button class="h5p-question-check-answer h5p-joubelui-button">' + this.options.check + '</div>');
+        
     /**
      * Get xAPI data.
      *
@@ -87,6 +95,7 @@ H5P.Infobox = (function ($) {
           return;}
       }, 1000);
     };
+
 
   };
   return Constructor;

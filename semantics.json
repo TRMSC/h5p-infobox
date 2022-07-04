@@ -64,11 +64,11 @@
       "optional": false
     },
     {
-      "name": "task",
-      "type": "library",
-      "label": "Task",
-      "options": [
-        "H5P.JoubelUI 1.3"
-      ]
+      "label": "Value for the check button",
+      "name": "check",
+      "description": "Text for the check button.",
+      "type": "text",
+      "default": "Finished",
+      "optional": "false"
     }
   ]
