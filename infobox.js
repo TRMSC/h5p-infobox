@@ -78,20 +78,30 @@ H5P.Infobox = (function ($) {
     };
 
     /**
+     * Prepare and trigger xAPI
+     * 
+     */
+    var finishActivity = function () {
+      console.log ('trigger xapi event');
+      var xAPIEvent = self.createXAPIEventTemplate('answered');
+      xAPIEvent.setScoredResult(1, MAX_SCORE, self, true, 'success');
+      self.triggerXAPI('answered');
+      //self.triggerXAPIComplete(2, 2, 'success');
+    }
+
+    /**
      * Improve timer
      * 
      */
     function checkTime (progress) {
+    //var checkTime = function (progress) {
       var time = 0;
       var interval = setInterval( function(){
         time ++;
         console.log (time);
         if (time == progress) {
           clearInterval(interval);
-          console.log ('trigger xapi event');
-          self.triggerXAPI('answered');
-          //triggerXAPIComplete(2, 2, 'success');
-
+          finishActivity();
           return;}
       }, 1000);
     };

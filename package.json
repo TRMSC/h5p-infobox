@@ -1,0 +1,25 @@
+{
+    "name": "h5p-infobox",
+    "version": "0.1.1",
+    "description": "H5P Infobox",
+    "main": "infobox.js",
+    "scripts": {
+      "test": "infobox start"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/TRMSC/h5p-infobox.git"
+    },
+    "author": "TRMSC",
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/TRMSC/h5p-infobox/issues"
+    },
+    "homepage": "https://github.com/TRMSC/h5p-infobox",
+    "devDependencies": {
+      "FontAwesome": "^4.5",
+      "H5P.Question": "^1.5",
+      "H5P.JoubelUI": "^1.3",
+      "H5P.FontIcons": "^1.0"
+    }
+  }
