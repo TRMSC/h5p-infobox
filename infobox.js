@@ -1,3 +1,4 @@
+"use-strict";
 var H5P = H5P || {};
  
 H5P.Infobox = (function ($) {
@@ -87,7 +88,7 @@ H5P.Infobox = (function ($) {
       xAPIEvent.setScoredResult(1, MAX_SCORE, self, true, 'success');
       self.triggerXAPI('answered');
       //self.triggerXAPIComplete(2, 2, 'success');
-    }
+    };
 
     /**
      * Improve timer
@@ -104,7 +105,7 @@ H5P.Infobox = (function ($) {
           finishActivity();
           return;}
       }, 1000);
-    };
+    }
 
 
   };
