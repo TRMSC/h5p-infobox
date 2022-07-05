@@ -8,7 +8,7 @@ H5P.Infobox = (function ($) {
   /**
    * Constructor function.
    */
-  function Constructor(options, id, params, behaviour) {
+  function Constructor(options, id) {
     this.options = $.extend(true, {}, {
       content: null,
       image: null
@@ -97,7 +97,7 @@ H5P.Infobox = (function ($) {
     function checkTime (progress) {
     //var checkTime = function (progress) {
       var time = 0;
-      var interval = setInterval( function(){
+      var interval = setInterval (function(){
         time ++;
         console.log (time);
         if (time == progress) {
