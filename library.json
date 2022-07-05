@@ -3,7 +3,7 @@
   "description": "Displays a simple information box with text, image and confirmation.",
   "majorVersion": 0,
   "minorVersion": 1,
-  "patchVersion": 1,
+  "patchVersion": 0,
   "runnable": 1,
   "author": "TRMSC",
   "license": "MIT",

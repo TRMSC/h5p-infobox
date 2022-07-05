@@ -1,6 +1,6 @@
 {
     "name": "h5p-infobox",
-    "version": "0.1.1",
+    "version": "0.1.0",
     "description": "H5P Infobox",
     "main": "infobox.js",
     "scripts": {
