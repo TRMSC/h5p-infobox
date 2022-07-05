@@ -1,74 +1,74 @@
 [ 
-    { 
-      "label": "Header", 
-      "name": "header", 
-      "type": "text", 
-      "default": "Here is space for an infobox header.", 
-      "description": "The header displayed to the end user. OPTIONAL",
-      "optional": true
-    },
-    { 
-      "label": "Introduction text", 
-      "name": "introtext", 
-      "type": "text", 
-      "widget": "html",
-      "tags": [
-        "p",
-        "br",
-        "strong",
-        "em",
-        "code"
-      ],
-      "default": "Here is space for first information.", 
-      "description": "The text displayed to the end user. OPTIONAL",
-      "optional": true
-    },
-    {
-      "label": "Image",
-      "name": "image",
-      "type": "image",
-      "description": "The image displayed to the end user. OPTIONAL",
-      "optional": true
-    },
-    { 
-      "label": "Extension text", 
-      "name": "extensiontext", 
-      "type": "text", 
-      "widget": "html",
-      "tags": [
-        "p",
-        "br",
-        "strong",
-        "em",
-        "code"
-      ],
-      "default": "Here is a space for further information.", 
-      "description": "The text displayed to the end user. OPTIONAL",
-      "optional": true
-    },
-    {
-      "label": "Checkbox for later",
-      "name": "checkbox",
-      "type": "boolean",
-      "default": false,
-      "description": "This is a checkbox for later.",
-      "optional": true
-    },
-    {
-      "label": "Duration for viewing information (seconds)",
-      "name": "duration",
-      "description": "Sets the duration for animating progressbar.",
-      "type": "number",
-      "default": 10,
-      "min": 0,
-      "optional": false
-    },
-    {
-      "label": "Value for the check button",
-      "name": "check",
-      "description": "Text for the check button.",
-      "type": "text",
-      "default": "Finished",
-      "optional": "false"
-    }
+  { 
+    "label": "Header", 
+    "name": "header", 
+    "type": "text", 
+    "default": "Here is space for an infobox header.", 
+    "description": "The header displayed to the end user. OPTIONAL",
+    "optional": true
+  },
+  { 
+    "label": "Introduction text", 
+    "name": "introtext", 
+    "type": "text", 
+    "widget": "html",
+    "tags": [
+      "p",
+      "br",
+      "strong",
+      "em",
+      "code"
+    ],
+    "default": "Here is space for first information.", 
+    "description": "The text displayed to the end user. OPTIONAL",
+    "optional": true
+  },
+  {
+    "label": "Image",
+    "name": "image",
+    "type": "image",
+    "description": "The image displayed to the end user. OPTIONAL",
+    "optional": true
+  },
+  { 
+    "label": "Extension text", 
+    "name": "extensiontext", 
+    "type": "text", 
+    "widget": "html",
+    "tags": [
+      "p",
+      "br",
+      "strong",
+      "em",
+      "code"
+    ],
+    "default": "Here is a space for further information.", 
+    "description": "The text displayed to the end user. OPTIONAL",
+    "optional": true
+  },
+  {
+    "label": "Checkbox for later",
+    "name": "checkbox",
+    "type": "boolean",
+    "default": false,
+    "description": "This is a checkbox for later.",
+    "optional": true
+  },
+  {
+    "label": "Duration for viewing information (seconds)",
+    "name": "duration",
+    "description": "Sets the duration for animating progressbar.",
+    "type": "number",
+    "default": 10,
+    "min": 0,
+    "optional": false
+  },
+  {
+    "label": "Value for the check button",
+    "name": "check",
+    "description": "Text for the check button.",
+    "type": "text",
+    "default": "Finished",
+    "optional": "false"
+  }
 ]

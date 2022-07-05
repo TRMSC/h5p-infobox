@@ -110,4 +110,4 @@ H5P.Infobox = (function ($) {
 
   };
   return Constructor;
-})(H5P.jQuery,);
+})(H5P.jQuery);
