@@ -88,8 +88,8 @@ H5P.Infobox = (function ($) {
       console.log ('trigger xapi event');
       var xAPIEvent = self.createXAPIEventTemplate('answered');
       xAPIEvent.setScoredResult(1, MAX_SCORE, self, true, 'success');
-      self.triggerXAPI('answered');
-      //self.triggerXAPIComplete(2, 2, 'success');
+      //self.triggerXAPI(true);
+      self.triggerXAPICompleted(2, 2, true);
     };
 
     /**
