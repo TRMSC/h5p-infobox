@@ -68,7 +68,7 @@ H5P.Infobox = (function ($) {
      * @return {H5P.XAPIEvent} XAPI answer event.
      */
     this.getXAPIAnswerEvent = () => {
-      const xAPIEvent = this.createXAPIEvent('answered');
+      const xAPIEvent = self.createXAPIEvent('answered');
       xAPIEvent.setScoredResult(this.getScore(), this.getMaxScore(), this,
         true, this.isPassed());
     
