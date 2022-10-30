@@ -5,6 +5,7 @@
   "minorVersion": 1,
   "patchVersion": 0,
   "runnable": 1,
+  "fullscreen": 1,
   "author": "TRMSC",
   "license": "MIT",
   "machineName": "H5P.Infobox",
