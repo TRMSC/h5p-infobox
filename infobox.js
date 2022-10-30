@@ -79,22 +79,39 @@ H5P.Infobox = (function ($) {
       // Build framework
       $container.addClass("h5p-infobox");
 
+      let header = "";
+      let introtext = "";
+      let image = "";
+      let extentiontext = "";
+
       if (self.options.header) {
-        $container.append('<div class="infobox-header">' + self.options.header + '</div>');
+        //$container.append('<div class="infobox-header">' + self.options.header + '</div>');
+        header = '<div class="infobox-header">' + self.options.header + '</div>';
       }
       if (self.options.introtext) {
-        $container.append('<div class="infobox-text">' + self.options.introtext + '</div>');
+        //$container.append('<div class="infobox-text">' + self.options.introtext + '</div>');
+        introtext = '<div class="infobox-text">' + self.options.introtext + '</div>';
       }
       if (self.options.image && self.options.image.path) {
-        $container.append('<div class="infobox-image-container"><img class="infobox-image" src="' + H5P.getPath(self.options.image.path, self.id) + '"></div>');
+        //$container.append('<div class="infobox-image-container"><img class="infobox-image" src="' + H5P.getPath(self.options.image.path, self.id) + '"></div>');
+        image = '<div class="infobox-image-container"><img class="infobox-image" src="' + H5P.getPath(self.options.image.path, self.id) + '"></div>';
       }
       if (self.options.extensiontext) {
-        $container.append('<div class="infobox-text">' + self.options.extensiontext + '</div>');
+        //$container.append('<div class="infobox-text">' + self.options.extensiontext + '</div>');
+        extentiontext = '<div class="infobox-text">' + self.options.extensiontext + '</div>';
       }
-      // Add duration elements
       let progress = self.options.duration;
       checkTime (progress);
-      $container.append('<div class="infobox-durationcontainer"><div class="infobox-durationstatus" style="animation: progress linear ' + progress + 's"></div></div>');
+      let duration = '<div class="infobox-durationcontainer"><div class="infobox-durationstatus" style="animation: progress linear ' + progress + 's"></div></div>';
+
+      let main = '<div class="h5p-infobox-container">' + header + introtext + image + extentiontext + duration + '</div>';
+      $container.append(main);
+
+
+      // Add duration elements
+      //let progress = self.options.duration;
+      //checkTime (progress);
+      //$container.append('<div class="infobox-durationcontainer"><div class="infobox-durationstatus" style="animation: progress linear ' + progress + 's"></div></div>');
       tuneRatios();
 
     })();
