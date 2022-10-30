@@ -32,7 +32,6 @@ H5P.Infobox = (function ($) {
       var time = 0;
       var interval = setInterval (function(){
         time ++;
-        console.log (time);
         if (time == progress) {
           clearInterval(interval);
           finishActivity();
