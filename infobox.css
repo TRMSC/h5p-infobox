@@ -1,6 +1,7 @@
 .h5p-infobox {
   width: 400px;
-  max-width: fit-content;
+  max-width: -webkit-fill-available;
+  max-width: -moz-available;
   margin: 20px auto;
   padding: 10px;
   border: 1px solid #ccc;
