@@ -3,10 +3,8 @@ var H5P = H5P || {};
  
 H5P.Infobox = (function ($) {
 
-  var MAX_SCORE = 2;
-
   /**
-   * Constructor function.
+   * @function Constructor
    */
   function Constructor(options, id) {
     this.options = $.extend(true, {}, {
@@ -17,12 +15,41 @@ H5P.Infobox = (function ($) {
   };
  
   /**
-   * Attach function called by H5P framework to insert H5P content into page
-   *
+   * @function
    * @param {jQuery} $container
+   * @description attach function called by H5P framework to insert H5P content into page
    */
   Constructor.prototype.attach = function ($container) {
     var self = this;
+
+    /**
+     * @function checkTime
+     * @param {number} progress
+     * @description improve timer
+     * 
+     */
+    let checkTime = function(progress) {
+      var time = 0;
+      var interval = setInterval (function(){
+        time ++;
+        console.log (time);
+        if (time == progress) {
+          clearInterval(interval);
+          finishActivity();
+          return;
+        }
+      }, 1000);
+    };
+
+    /**
+     * @function finishActivity
+     * @description finishing activity by triggering xAPI
+     * 
+     */
+    let finishActivity = function () {
+      let xAPIEvent = self.createXAPIEventTemplate('completed');
+      self.triggerXAPICompleted(1, 1, true, true);
+    };
 
     // Build framework
     $container.addClass("h5p-infobox");
@@ -40,75 +67,9 @@ H5P.Infobox = (function ($) {
     }
 
     // Add duration elements
-    var progress = this.options.duration;
+    let progress = this.options.duration;
     checkTime (progress);
     $container.append('<div class="infobox-durationcontainer"><div class="infobox-durationstatus" style="animation: progress linear ' + progress + 's"></div></div>');
-    
-    /*
-    // Add buttons
-    var $buttons = $('<div/>', {
-      'class': 'infobox-buttons'
-    }).appendTo($container);
-    //}).hide()
-    //  .appendTo($container);
-    $buttons.append('<button class="h5p-question-check-answer h5p-joubelui-button">' + this.options.check + '</div>');
-    */
-       
-    /**
-     * Get xAPI data.
-     *
-     * @return {object} XAPI statement.
-     * @see contract at {@link https://h5p.org/documentation/developers/contracts#guides-header-6}
-     */
-     this.getXAPIData = () => ({
-      statement: this.getXAPIAnswerEvent().data.statement
-    });
-
-    /**
-     * Build xAPI answer event.
-     *
-     * @return {H5P.XAPIEvent} XAPI answer event.
-     */
-    this.getXAPIAnswerEvent = () => {
-      const xAPIEvent = self.createXAPIEvent('answered');
-      xAPIEvent.setScoredResult(this.getScore(), this.getMaxScore(), this,
-        true, this.isPassed());
-    
-      //xAPIEvent.data.statement.result.completion = true;
-      //https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Data.md#245-result
-    
-      return xAPIEvent;
-    };
-
-    /**
-     * Prepare and trigger xAPI
-     * 
-     */
-    var finishActivity = function () {
-      console.log ('trigger xapi event');
-      var xAPIEvent = self.createXAPIEventTemplate('answered');
-      xAPIEvent.setScoredResult(1, MAX_SCORE, self, true, 'success');
-      //self.triggerXAPI(true);
-      self.triggerXAPICompleted(2, 2, true);
-    };
-
-    /**
-     * Improve timer
-     * 
-     */
-    function checkTime (progress) {
-    //var checkTime = function (progress) {
-      var time = 0;
-      var interval = setInterval (function(){
-        time ++;
-        console.log (time);
-        if (time == progress) {
-          clearInterval(interval);
-          finishActivity();
-          return;}
-      }, 1000);
-    }
-
 
   };
   return Constructor;
