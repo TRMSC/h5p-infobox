@@ -47,14 +47,6 @@
     "optional": true
   },
   {
-    "label": "Checkbox for later",
-    "name": "checkbox",
-    "type": "boolean",
-    "default": false,
-    "description": "This is a checkbox for later.",
-    "optional": true
-  },
-  {
     "label": "Duration for viewing information (seconds)",
     "name": "duration",
     "description": "Sets the duration for animating progressbar.",
@@ -62,13 +54,5 @@
     "default": 10,
     "min": 0,
     "optional": false
-  },
-  {
-    "label": "Value for the check button",
-    "name": "check",
-    "description": "Text for the check button.",
-    "type": "text",
-    "default": "Finished",
-    "optional": "false"
   }
 ]
