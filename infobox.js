@@ -45,48 +45,33 @@ H5P.Infobox = (function ($) {
      * @function finishActivity
      * @description finishing activity by triggering xAPI
      * 
-     */
+    */
     let finishActivity = function () {
       let xAPIEvent = self.createXAPIEventTemplate('completed');
       self.triggerXAPICompleted(1, 1, true, true);
     };
 
-    // Build framework
-    /*
-    $container.addClass("h5p-infobox");
-    if (this.options.header) {
-      $container.append('<div class="infobox-header">' + this.options.header + '</div>');
-    }
-    if (this.options.introtext) {
-      $container.append('<div class="infobox-text">' + this.options.introtext + '</div>');
-    }
-    if (this.options.image && this.options.image.path) {
-      $container.append('<img class="infobox-image" src="' + H5P.getPath(this.options.image.path, this.id) + '">');
-    }
-    if (this.options.extensiontext) {
-      $container.append('<div class="infobox-text">' + this.options.extensiontext + '</div>');
-    }
+    /**
+     * @function anonymous
+     * @description create dom elements
+     * 
     */
-   let buildFramework = function() {
-       // Build framework
-       $container.addClass("h5p-infobox");
-       if (self.options.header) {
-         $container.append('<div class="infobox-header">' + self.options.header + '</div>');
-       }
-       if (self.options.introtext) {
-         $container.append('<div class="infobox-text">' + self.options.introtext + '</div>');
-       }
-       if (self.options.image && self.options.image.path) {
-         $container.append('<img class="infobox-image" src="' + H5P.getPath(self.options.image.path, self.id) + '">');
-       }
-       if (self.options.extensiontext) {
-         $container.append('<div class="infobox-text">' + self.options.extensiontext + '</div>');
-       }
-    };
-
-    // Add duration elements
     (function() {
-      buildFramework();
+      // Build framework
+      $container.addClass("h5p-infobox");
+      if (self.options.header) {
+        $container.append('<div class="infobox-header">' + self.options.header + '</div>');
+      }
+      if (self.options.introtext) {
+        $container.append('<div class="infobox-text">' + self.options.introtext + '</div>');
+      }
+      if (self.options.image && self.options.image.path) {
+        $container.append('<img class="infobox-image" src="' + H5P.getPath(self.options.image.path, self.id) + '">');
+      }
+      if (self.options.extensiontext) {
+        $container.append('<div class="infobox-text">' + self.options.extensiontext + '</div>');
+      }
+      // Add duration elements
       let progress = self.options.duration;
       checkTime (progress);
       $container.append('<div class="infobox-durationcontainer"><div class="infobox-durationstatus" style="animation: progress linear ' + progress + 's"></div></div>');
