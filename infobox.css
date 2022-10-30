@@ -31,6 +31,7 @@
   height: 20px;
   border: 1px solid #ccc;
   box-shadow: 0px 0px 5px 1px #ccc;
+  margin-top: 10px;
 }
 .infobox-durationstatus {
   height: 100%;
