@@ -52,6 +52,7 @@ H5P.Infobox = (function ($) {
     };
 
     // Build framework
+    /*
     $container.addClass("h5p-infobox");
     if (this.options.header) {
       $container.append('<div class="infobox-header">' + this.options.header + '</div>');
@@ -65,11 +66,31 @@ H5P.Infobox = (function ($) {
     if (this.options.extensiontext) {
       $container.append('<div class="infobox-text">' + this.options.extensiontext + '</div>');
     }
+    */
+   let buildFramework = function() {
+       // Build framework
+       $container.addClass("h5p-infobox");
+       if (self.options.header) {
+         $container.append('<div class="infobox-header">' + self.options.header + '</div>');
+       }
+       if (self.options.introtext) {
+         $container.append('<div class="infobox-text">' + self.options.introtext + '</div>');
+       }
+       if (self.options.image && self.options.image.path) {
+         $container.append('<img class="infobox-image" src="' + H5P.getPath(self.options.image.path, self.id) + '">');
+       }
+       if (self.options.extensiontext) {
+         $container.append('<div class="infobox-text">' + self.options.extensiontext + '</div>');
+       }
+    };
 
     // Add duration elements
-    let progress = this.options.duration;
-    checkTime (progress);
-    $container.append('<div class="infobox-durationcontainer"><div class="infobox-durationstatus" style="animation: progress linear ' + progress + 's"></div></div>');
+    (function() {
+      buildFramework();
+      let progress = self.options.duration;
+      checkTime (progress);
+      $container.append('<div class="infobox-durationcontainer"><div class="infobox-durationstatus" style="animation: progress linear ' + progress + 's"></div></div>');
+    })();
 
   };
   return Constructor;
