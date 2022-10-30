@@ -7,6 +7,9 @@
   border: 1px solid #ccc;
   box-shadow: 2px 2px 4px #ccc;
 }
+.h5p-infobox.h5p-fullscreen {
+  background-color: white;
+}
 .h5p-infobox .infobox-image-container {
   display: flex;
   justify-content: space-around;
