@@ -1,5 +1,6 @@
 .h5p-infobox {
   width: 400px;
+  max-width: fit-content;
   margin: 20px auto;
   padding: 10px;
   border: 1px solid #ccc;
