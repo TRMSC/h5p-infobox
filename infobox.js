@@ -65,7 +65,7 @@ H5P.Infobox = (function ($) {
         $container.append('<div class="infobox-text">' + self.options.introtext + '</div>');
       }
       if (self.options.image && self.options.image.path) {
-        $container.append('<img class="infobox-image" src="' + H5P.getPath(self.options.image.path, self.id) + '">');
+        $container.append('<div class="infobox-image-container"><img class="infobox-image" src="' + H5P.getPath(self.options.image.path, self.id) + '"></div>');
       }
       if (self.options.extensiontext) {
         $container.append('<div class="infobox-text">' + self.options.extensiontext + '</div>');
