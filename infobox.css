@@ -12,7 +12,7 @@
   justify-content: space-around;
 }
 .h5p-infobox .infobox-image {
-  width: 100%;
+  max-width: 100%;
   height: auto;
 }
 .h5p-infobox .infobox-text {

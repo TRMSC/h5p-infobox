@@ -51,6 +51,26 @@ H5P.Infobox = (function ($) {
     };
 
     /**
+     * @function tuneRatios
+     * @description Tune aspect ratios
+     * 
+    */
+      let tuneRatios = function() {
+        let h = window.innerHeight;
+        $('.infobox-image').css('max-height', 0.6*h);
+      }
+
+    /**
+     * @event
+     * @fires onresize
+     * @description tune aspect ratios when window was resized
+     * 
+    */
+      window.onresize = function() {
+        tuneRatios();
+      };
+
+    /**
      * @function anonymous
      * @description create dom elements
      * 
@@ -58,6 +78,7 @@ H5P.Infobox = (function ($) {
     (function() {
       // Build framework
       $container.addClass("h5p-infobox");
+
       if (self.options.header) {
         $container.append('<div class="infobox-header">' + self.options.header + '</div>');
       }
@@ -74,6 +95,8 @@ H5P.Infobox = (function ($) {
       let progress = self.options.duration;
       checkTime (progress);
       $container.append('<div class="infobox-durationcontainer"><div class="infobox-durationstatus" style="animation: progress linear ' + progress + 's"></div></div>');
+      tuneRatios();
+
     })();
 
   };
