@@ -52,5 +52,13 @@
     "default": 10,
     "min": 0,
     "optional": false
+  },
+  {
+    "label": "Add grade to activity completion",
+    "name": "grade",
+    "description": "End user will get a grade with a score of 1 instead of a simple completion status.",
+    "type": "boolean",
+    "default": true,
+    "optional": true
   }
 ]

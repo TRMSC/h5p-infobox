@@ -47,7 +47,11 @@ H5P.Infobox = (function ($) {
     */
     let finishActivity = function () {
       let xAPIEvent = self.createXAPIEventTemplate('completed');
-      self.triggerXAPICompleted(1, 1, true, true);
+      if ( self.options.grade) {
+        self.triggerXAPICompleted(1, 1, true, true);
+      } else {
+        self.triggerXAPICompleted(0, 0, false);
+      }
     };
 
     /**
