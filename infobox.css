@@ -1,8 +1,11 @@
 .h5p-infobox {
+  display: flex;
+  justify-content: space-around;
+}
+.h5p-infobox .h5p-infobox-container {
   width: 400px;
   max-width: -webkit-fill-available;
   max-width: -moz-available;
-  margin: 20px auto;
   padding: 10px;
   border: 1px solid #ccc;
   box-shadow: 2px 2px 4px #ccc;
@@ -31,6 +34,7 @@
   height: 20px;
   border: 1px solid #ccc;
   box-shadow: 0px 0px 5px 1px #ccc;
+  margin-top: 10px;
 }
 .infobox-durationstatus {
   height: 100%;
