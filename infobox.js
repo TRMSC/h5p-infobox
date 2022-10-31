@@ -56,8 +56,8 @@ H5P.Infobox = (function ($) {
      * 
     */
       let tuneRatios = function() {
-        let h = window.innerHeight;
-        $('.infobox-image').css('max-height', 0.6*h);
+        let h = (window.innerHeight -50) + 'px';
+        $('.infobox-image').css('max-height', h);
       }
 
     /**
@@ -66,9 +66,9 @@ H5P.Infobox = (function ($) {
      * @description tune aspect ratios when window was resized
      * 
     */
-      window.onresize = function() {
-        tuneRatios();
-      };
+    window.onresize = (event) => {
+      tuneRatios();
+    };
 
     /**
      * @function anonymous
