@@ -32,7 +32,6 @@
     "label": "Extension text", 
     "name": "extensiontext", 
     "type": "text", 
-    "optional": "true",
     "widget": "html",
     "tags": [
       "p",
