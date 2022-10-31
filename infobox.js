@@ -60,7 +60,7 @@ H5P.Infobox = (function ($) {
      * 
     */
       let tuneRatios = function() {
-        let h = (window.innerHeight -50) + 'px';
+        let h = (window.innerHeight * 0.5) + 'px';
         $('.infobox-image').css('max-height', h);
       }
 
