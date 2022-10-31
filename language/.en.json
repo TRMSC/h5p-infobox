@@ -1,0 +1,28 @@
+{
+  "semantics": [ 
+    { 
+      "label": "Header", 
+      "description": "The header displayed to the end user. OPTIONAL"
+    },
+    { 
+      "label": "Introduction text", 
+      "description": "The text displayed to the end user. OPTIONAL"
+    },
+    {
+      "label": "Image",
+      "description": "The image displayed to the end user. OPTIONAL"
+    },
+    { 
+      "label": "Extension text", 
+      "description": "The text displayed to the end user. OPTIONAL"
+    },
+    {
+      "label": "Duration for viewing information (seconds)",
+      "description": "Sets the duration for animating progressbar."
+    },
+    {
+      "label": "Add grade to activity completion",
+      "description": "End user will get a grade with a score of 1 instead of a simple completion status."
+    }
+  ]
+}

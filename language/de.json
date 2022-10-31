@@ -1,0 +1,28 @@
+{
+  "semantics": [
+    { 
+      "label": "Überschrift", 
+      "description": "Die Überschrift, die Nutzer:innen angezeigt wird. OPTIONAL"
+    },
+    { 
+      "label": "Einführungstext", 
+      "description": "Der Text wird Nutzer:innen angezeigt. OPTIONAL"
+    },
+    {
+      "label": "Bild",
+      "description": "Das Bild, das Nutzer:innen sehen. OPTIONAL"
+    },
+    { 
+      "label": "Erweiterungstext", 
+      "description": "Der Text wird Nutzer:innen angezeigt. OPTIONAL"
+    },
+    {
+      "label": "Zeitspanne für die Betrachtung (Sekunden)",
+      "description": "Stellt die Zeitspanne für den animierten Fortschrittsbalken ein."
+    },
+    {
+      "label": "Bewertung zum Aktivitätsabschluss hinzufügen",
+      "description": "Nutzer:innen erhalten eine Bewertung mit einem Ergebnis von 1 anstelle eines einfachen Aktivitätsabschlusses."
+    }
+  ]
+}
