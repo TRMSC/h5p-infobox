@@ -6,42 +6,51 @@
     "description": "The header displayed to the end user. OPTIONAL",
     "optional": true
   },
-  { 
-    "label": "Introduction text", 
-    "name": "introtext", 
-    "type": "text", 
-    "widget": "html",
-    "tags": [
-      "p",
-      "br",
-      "strong",
-      "em",
-      "code"
-    ],
-    "description": "The text displayed to the end user. OPTIONAL",
-    "optional": true
-  },
   {
-    "label": "Image",
-    "name": "image",
-    "type": "image",
-    "description": "The image displayed to the end user. OPTIONAL",
-    "optional": true
-  },
-  { 
-    "label": "Extension text", 
-    "name": "extensiontext", 
-    "type": "text", 
-    "widget": "html",
-    "tags": [
-      "p",
-      "br",
-      "strong",
-      "em",
-      "code"
-    ],
-    "description": "The text displayed to the end user. OPTIONAL",
-    "optional": true
+    "name": "start",
+    "type": "group",
+    "label": "Start",
+    "expanded": true,
+    "importance": "high",
+    "fields": [
+      { 
+        "label": "Introduction text", 
+        "name": "introtext", 
+        "type": "text", 
+        "widget": "html",
+        "tags": [
+          "p",
+          "br",
+          "strong",
+          "em",
+          "code"
+        ],
+        "description": "The text displayed to the end user. OPTIONAL",
+        "optional": true
+      },
+      {
+        "label": "Image",
+        "name": "image",
+        "type": "image",
+        "description": "The image displayed to the end user. OPTIONAL",
+        "optional": true
+      },
+      { 
+        "label": "Extension text", 
+        "name": "extensiontext", 
+        "type": "text", 
+        "widget": "html",
+        "tags": [
+          "p",
+          "br",
+          "strong",
+          "em",
+          "code"
+        ],
+        "description": "The text displayed to the end user. OPTIONAL",
+        "optional": true
+      }
+    ]
   },
   {
     "name": "progress",
@@ -71,9 +80,9 @@
   },
 
   {
-    "name": "finish",
+    "name": "end",
     "type": "group",
-    "label": "At the end",
+    "label": "End",
     "expanded": true,
     "importance": "high",
     "fields": [
