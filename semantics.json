@@ -44,22 +44,32 @@
     "optional": true
   },
   {
-    "label": "Duration for viewing information (seconds)",
-    "name": "duration",
-    "description": "Sets the duration for animating progressbar.",
-    "type": "number",
-    "default": 10,
-    "min": 0,
-    "optional": false
+    "name": "progress",
+    "type": "group",
+    "label": "Progress",
+    "expanded": true,
+    "importance": "high",
+    "fields": [
+      {
+        "label": "Duration for viewing information (seconds)",
+        "name": "duration",
+        "description": "Sets the duration for animating progressbar.",
+        "type": "number",
+        "default": 10,
+        "min": 0,
+        "optional": false
+      },
+      {
+        "label": "Add grade to activity completion",
+        "name": "grade",
+        "description": "End user will get a grade with a score of 1 instead of a simple completion status.",
+        "type": "boolean",
+        "default": true,
+        "optional": true
+      }
+    ]
   },
-  {
-    "label": "Add grade to activity completion",
-    "name": "grade",
-    "description": "End user will get a grade with a score of 1 instead of a simple completion status.",
-    "type": "boolean",
-    "default": true,
-    "optional": true
-  },
+
   {
     "name": "finish",
     "type": "group",

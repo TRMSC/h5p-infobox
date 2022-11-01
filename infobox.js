@@ -47,7 +47,7 @@ H5P.Infobox = (function ($) {
     */
     let finishActivity = function () {
       let xAPIEvent = self.createXAPIEventTemplate('completed');
-      if ( self.options.grade) {
+      if ( self.options.progress.grade) {
         self.triggerXAPICompleted(1, 1, true, true);
       } else {
         self.triggerXAPICompleted(0, 0, false);
@@ -89,7 +89,7 @@ H5P.Infobox = (function ($) {
       let extentiontext = self.options.extensiontext ? '<div class="infobox-text">' + self.options.extensiontext + '</div>' : '';
 
       // Add duration elements
-      let progress = self.options.duration;
+      let progress = self.options.progress.duration;
       checkTime (progress);
       let duration = '<div class="infobox-durationcontainer"><div class="infobox-durationstatus" style="animation: progress linear ' + progress + 's"></div></div>';
 
