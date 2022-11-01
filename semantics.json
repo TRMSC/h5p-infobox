@@ -104,21 +104,64 @@
         ]
       },
       {
-        "name": "trigger",
-        "type": "select",
-        "label": "Trigger",
-        "description": "Determine how the closing page should be triggered.",
-        "default": "auto",
-        "options": [
+        "name": "settings",
+        "type": "group",
+        "label": "Settings for the closing page",
+        "expanded": true,
+        "importance": "low",
+        "widget": "showWhen",
+        "showWhen": {
+          "detach": true,
+          "rules": [
+            {
+              "field": "feedback",
+              "equals": "enabled"
+            }
+          ]
+        },
+        "fields": [
           {
-            "value": "auto",
-            "label": "Automatically after duration"
+            "name": "trigger",
+            "type": "select",
+            "label": "Trigger",
+            "description": "Determine how the closing page should be triggered.",
+            "default": "auto",
+            "options": [
+              {
+                "value": "auto",
+                "label": "Automatically after duration"
+              },
+              {
+                "value": "manual",
+                "label": "Manually by clicking a button"
+              }
+            ]
           },
           {
-            "value": "manual",
-            "label": "Manually by clicking a button"
+            "name": "return",
+            "type": "select",
+            "label": "Return to the content",
+            "description": "Possibility to go back to the main page.",
+            "default": "allowed",
+            "options": [
+              {
+                "value": "allowed",
+                "label": "Allowed"
+              },
+              {
+                "value": "forbidden",
+                "label": "Forbidden"
+              }
+            ]
           }
-        ],
+        ]
+      },
+      {
+        "name": "content",
+        "type": "group",
+        "label": "Content of the closing page",
+        "expanded": true,
+        "importance": "low",
         "widget": "showWhen",
         "showWhen": {
           "detach": true,
@@ -128,102 +171,49 @@
               "equals": "enabled"
             }
           ]
-        }
-      },
-      {
-        "name": "return",
-        "type": "select",
-        "label": "Return to the content",
-        "description": "Possibility to go back to the main page.",
-        "default": "allowed",
-        "options": [
-          {
-            "value": "allowed",
-            "label": "Allowed"
+        },
+        "fields": [
+          { 
+            "label": "Introduction text", 
+            "name": "introtext", 
+            "type": "text", 
+            "widget": "html",
+            "tags": [
+              "p",
+              "br",
+              "strong",
+              "em",
+              "code"
+            ],
+            "description": "The text displayed to the end user. OPTIONAL",
+            "optional": true
           },
           {
-            "value": "forbidden",
-            "label": "Forbidden"
+            "label": "Image",
+            "name": "image",
+            "type": "image",
+            "description": "The image displayed to the end user. OPTIONAL",
+            "optional": true
+          },
+          { 
+            "label": "Extension text", 
+            "name": "extensiontext", 
+            "type": "text", 
+            "widget": "html",
+            "tags": [
+              "p",
+              "br",
+              "strong",
+              "em",
+              "code"
+            ],
+            "description": "The text displayed to the end user. OPTIONAL",
+            "optional": true
           }
-        ],
-        "widget": "showWhen",
-        "showWhen": {
-          "detach": true,
-          "rules": [
-            {
-              "field": "feedback",
-              "equals": "enabled"
-            }
-          ]
-        }
-      },
-      { 
-        "label": "Introduction text", 
-        "name": "introtext", 
-        "type": "text", 
-        "widget": "html",
-        "tags": [
-          "p",
-          "br",
-          "strong",
-          "em",
-          "code"
-        ],
-        "description": "The text displayed to the end user. OPTIONAL",
-        "optional": true,
-        "widget": "showWhen",
-        "showWhen": {
-          "detach": true,
-          "rules": [
-            {
-              "field": "feedback",
-              "equals": "enabled"
-            }
-          ]
-        }
-      },
-      {
-        "label": "Image",
-        "name": "image",
-        "type": "image",
-        "description": "The image displayed to the end user. OPTIONAL",
-        "optional": true,
-        "widget": "showWhen",
-        "showWhen": {
-          "detach": true,
-          "rules": [
-            {
-              "field": "feedback",
-              "equals": "enabled"
-            }
-          ]
-        }
-      },
-      { 
-        "label": "Extension text", 
-        "name": "extensiontext", 
-        "type": "text", 
-        "widget": "html",
-        "tags": [
-          "p",
-          "br",
-          "strong",
-          "em",
-          "code"
-        ],
-        "description": "The text displayed to the end user. OPTIONAL",
-        "optional": true,
-        "widget": "showWhen",
-        "showWhen": {
-          "detach": true,
-          "rules": [
-            {
-              "field": "feedback",
-              "equals": "enabled"
-            }
-          ]
-        }
+
+        ]  
       }
+
     ]
   }
 ]
