@@ -3,7 +3,7 @@
   justify-content: space-around;
 }
 .h5p-infobox .h5p-infobox-container {
-  width: 400px;
+  width: 100%;
   max-width: -webkit-fill-available;
   max-width: -moz-available;
   padding: 10px;

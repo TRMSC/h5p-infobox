@@ -83,10 +83,10 @@ H5P.Infobox = (function ($) {
       $container.addClass("h5p-infobox");
 
       // Build framework
-      let header = self.options.header ? '<div class="infobox-header">' + self.options.header + '</div>' : '';
-      let introtext = self.options.introtext ? '<div class="infobox-text">' + self.options.introtext + '</div>' : "";
-      let image = self.options.image && self.options.image.path ? '<div class="infobox-image-container"><img class="infobox-image" src="' + H5P.getPath(self.options.image.path, self.id) + '"></div>' : '';
-      let extentiontext = self.options.extensiontext ? '<div class="infobox-text">' + self.options.extensiontext + '</div>' : '';
+      let header = self.options.start.header ? '<div class="infobox-header">' + self.options.start.header + '</div>' : '';
+      let introtext = self.options.start.introtext ? '<div class="infobox-text">' + self.options.start.introtext + '</div>' : "";
+      let image = self.options.start.image && self.options.start.image.path ? '<div class="infobox-image-container"><img class="infobox-image" src="' + H5P.getPath(self.options.start.image.path, self.id) + '"></div>' : '';
+      let extentiontext = self.options.start.extensiontext ? '<div class="infobox-text">' + self.options.start.extensiontext + '</div>' : '';
 
       // Add duration elements
       let progress = self.options.progress.duration;
