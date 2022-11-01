@@ -73,7 +73,7 @@ H5P.Infobox = (function ($) {
     let finishActivity = function () {
       if (feedback == 'enabled') {
         $('.infobox-icon').css('opacity', '1');
-        $('.infobox-durationstatus').css('cursor', 'pointer');
+        $('.infobox-durationstatus').addClass('infobox-btn');
         $('.infobox-durationstatus').attr('onclick', 'showFeedback();'); 
       } else {
         fireXapi();
@@ -131,8 +131,9 @@ H5P.Infobox = (function ($) {
       // Build framework
       let header = self.options.header ? '<div class="infobox-header">' + self.options.header + '</div>' : '';
       let duration = '<div class="infobox-durationcontainer"><div class="infobox-durationstatus" style="animation: progress linear ' + progress + 's"><i class="fa fa-chevron-right infobox-icon"></i></div></div>';
+      let back = (self.options.end.settings.return == 'allowed') ? '<div class="infobox-backcontainer infobox-back infobox-btn"><i class="fa fa-chevron-left infobox-icon"></i></div>' : '';
       let main = '<div class="h5p-infobox-container h5p-infobox-main">' + header + buildPage(self.options.start) + duration + '</div>';
-      let close = '<div class="h5p-infobox-container h5p-infobox-close">' + header + buildPage(self.options.end.content) + '</div>';
+      let close = '<div class="h5p-infobox-container h5p-infobox-close">' + header + buildPage(self.options.end.content) + back + '</div>';
       $container.append(main + close);
 
       checkTime (progress);
