@@ -66,13 +66,13 @@
     "label": "At the end",
     "expanded": true,
     "importance": "high",
-    "default": "disabled",
     "fields": [
       {
         "name": "feedback",
         "type": "select",
         "label": "Closing page",
         "description": "Show closing page after finishing.",
+        "default": "disabled",
         "options": [
           {
             "value": "enabled",
@@ -80,18 +80,36 @@
           },
           {
             "value": "disabled",
-            "label": "Disabled",
-            "default": true
+            "label": "Disabled"
           }
         ]
       },
       {
-        "label": "Add grade to activity completion",
-        "name": "grade",
-        "description": "End user will get a grade with a score of 1 instead of a simple completion status.",
-        "type": "boolean",
-        "default": true,
-        "optional": true
+        "name": "trigger",
+        "type": "select",
+        "label": "Trigger",
+        "description": "Determine how the closing page should be triggered.",
+        "default": "auto",
+        "options": [
+          {
+            "value": "auto",
+            "label": "Automatically after duration"
+          },
+          {
+            "value": "manual",
+            "label": "Manually by clicking a button"
+          }
+        ],
+        "widget": "showWhen",
+        "showWhen": {
+          "detach": true,
+          "rules": [
+            {
+              "field": "feedback",
+              "equals": "enabled"
+            }
+          ]
+        }
       }
     ]
   }
