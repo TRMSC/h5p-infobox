@@ -72,9 +72,9 @@ H5P.Infobox = (function ($) {
     */
     let finishActivity = function () {
       if (feedback == 'enabled') {
-        $('.infobox-icon').css('display', 'inline-block');
+        $('.infobox-icon').css('opacity', '1');
         $('.infobox-durationstatus').css('cursor', 'pointer');
-        // Give button an onclick atrribute
+        $('.infobox-durationstatus').attr('onclick', 'showFeedback();'); 
       } else {
         fireXapi();
         return;

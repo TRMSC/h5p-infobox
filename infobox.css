@@ -52,7 +52,8 @@
   color: white;
   font-size: large;
   padding: 10px;
-  display: none;
+  opacity: 0;
+  transition: 0.6s;
 }
 
 @keyframes progress {
