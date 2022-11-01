@@ -59,5 +59,40 @@
     "type": "boolean",
     "default": true,
     "optional": true
+  },
+  {
+    "name": "finish",
+    "type": "group",
+    "label": "At the end",
+    "expanded": true,
+    "importance": "high",
+    "default": "disabled",
+    "fields": [
+      {
+        "name": "feedback",
+        "type": "select",
+        "label": "Closing page",
+        "description": "Show closing page after finishing.",
+        "options": [
+          {
+            "value": "enabled",
+            "label": "Enabled"
+          },
+          {
+            "value": "disabled",
+            "label": "Disabled",
+            "default": true
+          }
+        ]
+      },
+      {
+        "label": "Add grade to activity completion",
+        "name": "grade",
+        "description": "End user will get a grade with a score of 1 instead of a simple completion status.",
+        "type": "boolean",
+        "default": true,
+        "optional": true
+      }
+    ]
   }
 ]
