@@ -10,11 +10,16 @@
   border: 1px solid #ccc;
   box-shadow: 2px 2px 4px #ccc;
 }
-.h5p-infobox .h5p-infobox-close {
-  display: none;
+.h5p-infobox.h5p-fullscreen .h5p-infobox-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .h5p-infobox.h5p-fullscreen {
   background-color: white;
+}
+.h5p-infobox .h5p-infobox-close {
+  display: none!important;
 }
 .h5p-infobox .infobox-image-container {
   display: flex;
