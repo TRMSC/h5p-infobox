@@ -74,15 +74,27 @@ H5P.Infobox = (function ($) {
       if (feedback == 'enabled') {
         $('.infobox-icon').css('display', 'inline-block');
         $('.infobox-durationstatus').css('cursor', 'pointer');
+        // Give button an onclick atrribute
       } else {
         fireXapi();
         return;
       }
       if (settings.trigger !== 'manual') {
-        fireXapi();
+        showFeedback();
       } else {
         console.log('button is not available until now');
       }
+    };
+
+    /**
+     * @function showFeedback
+     * @description show closing page
+     * 
+    */
+    let showFeedback = function() {
+      $('.h5p-infobox-main').css('display', 'none');
+      $('.h5p-infobox-close').css('display', 'block');
+      fireXapi();
     };
 
     /**
