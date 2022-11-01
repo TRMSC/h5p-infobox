@@ -81,9 +81,7 @@ H5P.Infobox = (function ($) {
       }
       if (settings.trigger !== 'manual') {
         showFeedback();
-      } else {
-        console.log('button is not available until now');
-      }
+      } 
     };
 
     /**
