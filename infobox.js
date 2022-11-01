@@ -75,6 +75,19 @@ H5P.Infobox = (function ($) {
     };
 
     /**
+     * @function buildPage
+     * @description create elements for the page
+     * @param {Object} content adress of the target page
+     * 
+    */
+    let buildPage = function (content) {
+      let introtext = content.introtext ? '<div class="infobox-text">' + content.introtext + '</div>' : "";
+      let image = content.image && content.image.path ? '<div class="infobox-image-container"><img class="infobox-image" src="' + H5P.getPath(content.image.path, self.id) + '"></div>' : '';
+      let extentiontext = content.extensiontext ? '<div class="infobox-text">' + content.extensiontext + '</div>' : '';
+      return introtext + image + extentiontext;
+    };
+
+    /**
      * @function anonymous
      * @description create dom elements
      * 
@@ -82,19 +95,14 @@ H5P.Infobox = (function ($) {
     (function() {
       $container.addClass("h5p-infobox");
 
-      // Build framework
-      let header = self.options.start.header ? '<div class="infobox-header">' + self.options.start.header + '</div>' : '';
-      let introtext = self.options.start.introtext ? '<div class="infobox-text">' + self.options.start.introtext + '</div>' : "";
-      let image = self.options.start.image && self.options.start.image.path ? '<div class="infobox-image-container"><img class="infobox-image" src="' + H5P.getPath(self.options.start.image.path, self.id) + '"></div>' : '';
-      let extentiontext = self.options.start.extensiontext ? '<div class="infobox-text">' + self.options.start.extensiontext + '</div>' : '';
-
-      // Add duration elements
+      // Handle duration elements
       let progress = self.options.progress.duration;
       checkTime (progress);
       let duration = '<div class="infobox-durationcontainer"><div class="infobox-durationstatus" style="animation: progress linear ' + progress + 's"></div></div>';
 
-      // Append all elements
-      let main = '<div class="h5p-infobox-container">' + header + introtext + image + extentiontext + duration + '</div>';
+      // Build framework
+      let header = self.options.start.header ? '<div class="infobox-header">' + self.options.start.header + '</div>' : '';
+      let main = '<div class="h5p-infobox-container">' + header + buildPage(self.options.start) + duration + '</div>';
       $container.append(main);
 
       tuneRatios();
