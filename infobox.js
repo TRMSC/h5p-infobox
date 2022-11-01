@@ -21,6 +21,31 @@ H5P.Infobox = (function ($) {
    */
   Constructor.prototype.attach = function ($container) {
     var self = this;
+    let settings = self.options.end.settings;
+    let feedback = self.options.end.feedback;
+
+    /**
+     * @function buildPage
+     * @description create elements for the page
+     * @param {Object} content adress of the target page
+     * 
+    */
+     let buildPage = function (content) {
+      let introtext = content.introtext ? '<div class="infobox-text">' + content.introtext + '</div>' : "";
+      let image = content.image && content.image.path ? '<div class="infobox-image-container"><img class="infobox-image" src="' + H5P.getPath(content.image.path, self.id) + '"></div>' : '';
+      let extentiontext = content.extensiontext ? '<div class="infobox-text">' + content.extensiontext + '</div>' : '';
+      return introtext + image + extentiontext;
+    };
+
+    /**
+     * @function tuneRatios
+     * @description Tune aspect ratios
+     * 
+    */
+      let tuneRatios = function() {
+        let h = (window.innerHeight * 0.5) + 'px';
+        $('.infobox-image').css('max-height', h);
+      }
 
     /**
      * @function checkTime
@@ -28,7 +53,7 @@ H5P.Infobox = (function ($) {
      * @description improve timer
      * 
      */
-    let checkTime = function(progress) {
+     let checkTime = function(progress) {
       var time = 0;
       var interval = setInterval (function(){
         time ++;
@@ -46,6 +71,26 @@ H5P.Infobox = (function ($) {
      * 
     */
     let finishActivity = function () {
+      if (feedback == 'enabled') {
+        $('.infobox-icon').css('display', 'inline-block');
+        $('.infobox-durationstatus').css('cursor', 'pointer');
+      } else {
+        fireXapi();
+        return;
+      }
+      if (settings.trigger !== 'manual') {
+        fireXapi();
+      } else {
+        console.log('button is not available until now');
+      }
+    };
+
+    /**
+     * @function fireXapi
+     * @description triggering xAPI
+     * 
+    */
+     let fireXapi = function () {
       let xAPIEvent = self.createXAPIEventTemplate('completed');
       if ( self.options.progress.grade) {
         self.triggerXAPICompleted(1, 1, true, true);
@@ -53,16 +98,6 @@ H5P.Infobox = (function ($) {
         self.triggerXAPICompleted(0, 0, false);
       }
     };
-
-    /**
-     * @function tuneRatios
-     * @description Tune aspect ratios
-     * 
-    */
-      let tuneRatios = function() {
-        let h = (window.innerHeight * 0.5) + 'px';
-        $('.infobox-image').css('max-height', h);
-      }
 
     /**
      * @event
@@ -75,37 +110,22 @@ H5P.Infobox = (function ($) {
     };
 
     /**
-     * @function buildPage
-     * @description create elements for the page
-     * @param {Object} content adress of the target page
-     * 
-    */
-    let buildPage = function (content) {
-      let introtext = content.introtext ? '<div class="infobox-text">' + content.introtext + '</div>' : "";
-      let image = content.image && content.image.path ? '<div class="infobox-image-container"><img class="infobox-image" src="' + H5P.getPath(content.image.path, self.id) + '"></div>' : '';
-      let extentiontext = content.extensiontext ? '<div class="infobox-text">' + content.extensiontext + '</div>' : '';
-      return introtext + image + extentiontext;
-    };
-
-    /**
      * @function anonymous
      * @description create dom elements
      * 
     */
     (function() {
       $container.addClass("h5p-infobox");
-
-      // Handle duration elements
       let progress = self.options.progress.duration;
-      checkTime (progress);
-      let duration = '<div class="infobox-durationcontainer"><div class="infobox-durationstatus" style="animation: progress linear ' + progress + 's"></div></div>';
 
       // Build framework
       let header = self.options.header ? '<div class="infobox-header">' + self.options.header + '</div>' : '';
+      let duration = '<div class="infobox-durationcontainer"><div class="infobox-durationstatus" style="animation: progress linear ' + progress + 's"><i class="fa fa-chevron-right infobox-icon"></i></div></div>';
       let main = '<div class="h5p-infobox-container h5p-infobox-main">' + header + buildPage(self.options.start) + duration + '</div>';
       let close = '<div class="h5p-infobox-container h5p-infobox-close">' + header + buildPage(self.options.end.content) + '</div>';
       $container.append(main + close);
 
+      checkTime (progress);
       tuneRatios();
 
     })();
