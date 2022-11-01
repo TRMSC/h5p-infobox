@@ -156,6 +156,73 @@
             }
           ]
         }
+      },
+      { 
+        "label": "Introduction text", 
+        "name": "introtext", 
+        "type": "text", 
+        "widget": "html",
+        "tags": [
+          "p",
+          "br",
+          "strong",
+          "em",
+          "code"
+        ],
+        "description": "The text displayed to the end user. OPTIONAL",
+        "optional": true,
+        "widget": "showWhen",
+        "showWhen": {
+          "detach": true,
+          "rules": [
+            {
+              "field": "feedback",
+              "equals": "enabled"
+            }
+          ]
+        }
+      },
+      {
+        "label": "Image",
+        "name": "image",
+        "type": "image",
+        "description": "The image displayed to the end user. OPTIONAL",
+        "optional": true,
+        "widget": "showWhen",
+        "showWhen": {
+          "detach": true,
+          "rules": [
+            {
+              "field": "feedback",
+              "equals": "enabled"
+            }
+          ]
+        }
+      },
+      { 
+        "label": "Extension text", 
+        "name": "extensiontext", 
+        "type": "text", 
+        "widget": "html",
+        "tags": [
+          "p",
+          "br",
+          "strong",
+          "em",
+          "code"
+        ],
+        "description": "The text displayed to the end user. OPTIONAL",
+        "optional": true,
+        "widget": "showWhen",
+        "showWhen": {
+          "detach": true,
+          "rules": [
+            {
+              "field": "feedback",
+              "equals": "enabled"
+            }
+          ]
+        }
       }
     ]
   }
