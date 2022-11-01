@@ -101,9 +101,10 @@ H5P.Infobox = (function ($) {
       let duration = '<div class="infobox-durationcontainer"><div class="infobox-durationstatus" style="animation: progress linear ' + progress + 's"></div></div>';
 
       // Build framework
-      let header = self.options.start.header ? '<div class="infobox-header">' + self.options.start.header + '</div>' : '';
-      let main = '<div class="h5p-infobox-container">' + header + buildPage(self.options.start) + duration + '</div>';
-      $container.append(main);
+      let header = self.options.header ? '<div class="infobox-header">' + self.options.header + '</div>' : '';
+      let main = '<div class="h5p-infobox-container h5p-infobox-main">' + header + buildPage(self.options.start) + duration + '</div>';
+      let close = '<div class="h5p-infobox-container h5p-infobox-close">' + header + buildPage(self.options.end.content) + '</div>';
+      $container.append(main + close);
 
       tuneRatios();
 
