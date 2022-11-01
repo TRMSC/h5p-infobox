@@ -110,6 +110,33 @@
             }
           ]
         }
+      },
+      {
+        "name": "return",
+        "type": "select",
+        "label": "Return to the content",
+        "description": "Opportunity to go back to the main page.",
+        "default": "allowed",
+        "options": [
+          {
+            "value": "allowed",
+            "label": "Allowed"
+          },
+          {
+            "value": "forbidden",
+            "label": "Forbidden"
+          }
+        ],
+        "widget": "showWhen",
+        "showWhen": {
+          "detach": true,
+          "rules": [
+            {
+              "field": "feedback",
+              "equals": "enabled"
+            }
+          ]
+        }
       }
     ]
   }
