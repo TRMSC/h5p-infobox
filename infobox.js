@@ -74,7 +74,7 @@ H5P.Infobox = (function ($) {
       if (feedback == 'enabled') {
         $('.infobox-icon').css('opacity', '1');
         $('.infobox-durationstatus').addClass('infobox-btn');
-        $('.infobox-durationstatus').attr('onclick', 'showFeedback();'); 
+        //$('.infobox-durationstatus').attr('onclick', 'showFeedback();'); 
       } else {
         fireXapi();
         return;
