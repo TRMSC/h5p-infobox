@@ -103,10 +103,12 @@ H5P.Infobox = (function ($) {
       $container.find('.h5p-infobox-main').css('display', 'none');
       $container.find('.h5p-infobox-close').css('display', 'block');
       fireXapi();
-      let btn = $container.find('.infobox-backcontainer.infobox-btn');
-      btn.click(() => {
-        showMain();
-      });
+      if (settings.return) {
+        let btn = $container.find('.infobox-backcontainer.infobox-btn');
+        btn.click(() => {
+          showMain();
+        });
+      }
     };
 
     /**
