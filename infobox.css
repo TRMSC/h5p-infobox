@@ -1,6 +1,7 @@
 .h5p-infobox {
   display: flex;
   justify-content: space-around;
+  overflow: auto;
 }
 .h5p-infobox .h5p-infobox-container {
   width: 100%;

@@ -43,18 +43,6 @@ H5P.Infobox = (function ($) {
     };
 
     /**
-     * @function tuneRatios
-     * @description Tune aspect ratios
-     * 
-    */
-      let tuneRatios = function() {
-        /*
-        let h = (window.innerHeight * 0.5) + 'px';
-        $('.infobox-image').css('max-height', h);
-        */
-      }
-
-    /**
      * @function checkTime
      * @param {number} progress
      * @description improve timer
@@ -102,6 +90,7 @@ H5P.Infobox = (function ($) {
     let showFeedback = function() {
       $container.find('.h5p-infobox-main').css('display', 'none');
       $container.find('.h5p-infobox-close').css('display', 'block');
+      //$('.h5p-iframe').css('height', '0px');
       fireXapi();
       if (settings.return) {
         let btn = $container.find('.infobox-backcontainer.infobox-btn');
@@ -141,6 +130,18 @@ H5P.Infobox = (function ($) {
     };
 
     /**
+     * @function tuneRatios
+     * @description Tune aspect ratios
+     * 
+    */
+     let tuneRatios = function() {
+      /*
+      let h = (window.innerHeight * 0.5) + 'px';
+      $('.infobox-image').css('max-height', h);
+      */
+    }
+
+    /**
      * @event
      * @fires onresize
      * @description tune aspect ratios when window was resized
@@ -151,7 +152,7 @@ H5P.Infobox = (function ($) {
     };
 
     /**
-     * @function anonymous
+     * @function
      * @description create dom elements
      * 
     */

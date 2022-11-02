@@ -9,6 +9,9 @@
   "author": "TRMSC",
   "license": "MIT",
   "machineName": "H5P.Infobox",
+  "embedTypes": [
+    "iframe"
+  ],
   "coreApi": {
     "majorVersion": 1,
     "minorVersion": 0
