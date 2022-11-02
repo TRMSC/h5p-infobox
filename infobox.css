@@ -1,46 +1,97 @@
 .h5p-infobox {
-  display: flex;
   justify-content: space-around;
+  overflow: auto;
+  flex-direction: column;
+}
+.h5p-infobox-hidden {
+  width: 0!important;
+  padding: 0!important;
+  border: none!important;
+  box-shadow: none!important;
 }
 .h5p-infobox .h5p-infobox-container {
-  /*width: 400px;*/
+  width: 100%;
   max-width: -webkit-fill-available;
   max-width: -moz-available;
   padding: 10px;
   border: 1px solid #ccc;
   box-shadow: 2px 2px 4px #ccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: inherit;
+}
+.h5p-infobox.h5p-fullscreen .h5p-infobox-container {
+  justify-content: space-between;
 }
 .h5p-infobox.h5p-fullscreen {
   background-color: white;
+  height: inherit!important;
 }
 .h5p-infobox .infobox-image-container {
   display: flex;
   justify-content: space-around;
+  height: -webkit-fill-available;
 }
 .h5p-infobox .infobox-image {
   max-width: 100%;
-  height: auto;
+  /*height: auto;*/
+}
+.h5p-infobox .infobox-header {
+  font-family: fantasy;
+  color: #797979;
 }
 .h5p-infobox .infobox-text {
   width: auto;
   margin: 16px;
-  font-family: fantasy;
+  font-family: sans-serif;
   font-size: 20px;
   font-weight: bold;
   line-height: 24px;
   text-align: center;
 }
-.infobox-durationcontainer {
-  height: 20px;
+.infobox-durationcontainer,
+.infobox-backcontainer {
+  height: 25px;
   border: 1px solid #ccc;
   box-shadow: 0px 0px 5px 1px #ccc;
   margin-top: 10px;
 }
+.h5p-fullscreen .infobox-durationcontainer,
+.h5p-fullscreen .infobox-backcontainer {
+  height: 35px;
+}
 .infobox-durationstatus {
   height: 100%;
   width: 0%;
-  background-color: green;
+  background-color: #1a73d9;
   animation-fill-mode: forwards!important;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.infobox-btn {
+  cursor: pointer;
+}
+.infobox-btn:hover,
+.infobox-btn:focus {
+  background-color: #1356a3;
+}
+.infobox-btn:active {
+  background-color: #104888;
+}
+.infobox-back {
+  background-color: #1a73d9;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.infobox-icon {
+  color: white;
+  font-size: large;
+  padding: 10px 10px 7.5px 10px;
+  opacity: 0;
+  transition: 0.6s;
 }
 
 @keyframes progress {

@@ -9,6 +9,9 @@
   "author": "TRMSC",
   "license": "MIT",
   "machineName": "H5P.Infobox",
+  "embedTypes": [
+    "iframe"
+  ],
   "coreApi": {
     "majorVersion": 1,
     "minorVersion": 0
@@ -37,6 +40,13 @@
     },
     {
       "machineName": "H5P.FontIcons",
+      "majorVersion": 1,
+      "minorVersion": 0
+    }
+  ],
+  "editorDependencies": [
+    {
+      "machineName": "H5PEditor.ShowWhen",
       "majorVersion": 1,
       "minorVersion": 0
     }

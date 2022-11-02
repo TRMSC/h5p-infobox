@@ -6,58 +6,214 @@
     "description": "The header displayed to the end user. OPTIONAL",
     "optional": true
   },
-  { 
-    "label": "Introduction text", 
-    "name": "introtext", 
-    "type": "text", 
-    "widget": "html",
-    "tags": [
-      "p",
-      "br",
-      "strong",
-      "em",
-      "code"
-    ],
-    "description": "The text displayed to the end user. OPTIONAL",
-    "optional": true
+  {
+    "name": "start",
+    "type": "group",
+    "label": "Start",
+    "expanded": true,
+    "importance": "high",
+    "fields": [
+      { 
+        "label": "Introduction text", 
+        "name": "introtext", 
+        "type": "text", 
+        "widget": "html",
+        "tags": [
+          "p",
+          "br",
+          "strong",
+          "em",
+          "code"
+        ],
+        "description": "The text displayed to the end user. OPTIONAL",
+        "optional": true
+      },
+      {
+        "label": "Image",
+        "name": "image",
+        "type": "image",
+        "description": "The image displayed to the end user. OPTIONAL",
+        "optional": true
+      },
+      { 
+        "label": "Extension text", 
+        "name": "extensiontext", 
+        "type": "text", 
+        "widget": "html",
+        "tags": [
+          "p",
+          "br",
+          "strong",
+          "em",
+          "code"
+        ],
+        "description": "The text displayed to the end user. OPTIONAL",
+        "optional": true
+      }
+    ]
   },
   {
-    "label": "Image",
-    "name": "image",
-    "type": "image",
-    "description": "The image displayed to the end user. OPTIONAL",
-    "optional": true
+    "name": "progress",
+    "type": "group",
+    "label": "Progress",
+    "expanded": true,
+    "importance": "high",
+    "fields": [
+      {
+        "label": "Duration for viewing information (seconds)",
+        "name": "duration",
+        "description": "Sets the duration for animating progressbar.",
+        "type": "number",
+        "default": 10,
+        "min": 0,
+        "optional": false
+      },
+      {
+        "label": "Add grade to activity completion",
+        "name": "grade",
+        "description": "End user will get a grade with a score of 1 instead of a simple completion status.",
+        "type": "boolean",
+        "default": true,
+        "optional": true
+      }
+    ]
   },
-  { 
-    "label": "Extension text", 
-    "name": "extensiontext", 
-    "type": "text", 
-    "widget": "html",
-    "tags": [
-      "p",
-      "br",
-      "strong",
-      "em",
-      "code"
-    ],
-    "description": "The text displayed to the end user. OPTIONAL",
-    "optional": true
-  },
+
   {
-    "label": "Duration for viewing information (seconds)",
-    "name": "duration",
-    "description": "Sets the duration for animating progressbar.",
-    "type": "number",
-    "default": 10,
-    "min": 0,
-    "optional": false
-  },
-  {
-    "label": "Add grade to activity completion",
-    "name": "grade",
-    "description": "End user will get a grade with a score of 1 instead of a simple completion status.",
-    "type": "boolean",
-    "default": true,
-    "optional": true
+    "name": "end",
+    "type": "group",
+    "label": "End",
+    "expanded": true,
+    "importance": "high",
+    "fields": [
+      {
+        "name": "feedback",
+        "type": "select",
+        "label": "Closing page",
+        "description": "Show closing page after finishing.",
+        "default": "disabled",
+        "options": [
+          {
+            "value": "enabled",
+            "label": "Enabled"
+          },
+          {
+            "value": "disabled",
+            "label": "Disabled"
+          }
+        ]
+      },
+      {
+        "name": "settings",
+        "type": "group",
+        "label": "Settings for the closing page",
+        "expanded": true,
+        "importance": "low",
+        "widget": "showWhen",
+        "showWhen": {
+          "detach": true,
+          "rules": [
+            {
+              "field": "feedback",
+              "equals": "enabled"
+            }
+          ]
+        },
+        "fields": [
+          {
+            "name": "trigger",
+            "type": "select",
+            "label": "Trigger",
+            "description": "Determine how the closing page should be triggered.",
+            "default": "auto",
+            "options": [
+              {
+                "value": "auto",
+                "label": "Automatically after duration"
+              },
+              {
+                "value": "manual",
+                "label": "Manually by clicking a button"
+              }
+            ]
+          },
+          {
+            "name": "return",
+            "type": "select",
+            "label": "Return to the content",
+            "description": "Possibility to go back to the main page.",
+            "default": "allowed",
+            "options": [
+              {
+                "value": "allowed",
+                "label": "Allowed"
+              },
+              {
+                "value": "forbidden",
+                "label": "Forbidden"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "content",
+        "type": "group",
+        "label": "Content of the closing page",
+        "expanded": true,
+        "importance": "low",
+        "widget": "showWhen",
+        "showWhen": {
+          "detach": true,
+          "rules": [
+            {
+              "field": "feedback",
+              "equals": "enabled"
+            }
+          ]
+        },
+        "fields": [
+          { 
+            "label": "Introduction text", 
+            "name": "introtext", 
+            "type": "text", 
+            "widget": "html",
+            "tags": [
+              "p",
+              "br",
+              "strong",
+              "em",
+              "code"
+            ],
+            "description": "The text displayed to the end user. OPTIONAL",
+            "optional": true
+          },
+          {
+            "label": "Image",
+            "name": "image",
+            "type": "image",
+            "description": "The image displayed to the end user. OPTIONAL",
+            "optional": true
+          },
+          { 
+            "label": "Extension text", 
+            "name": "extensiontext", 
+            "type": "text", 
+            "widget": "html",
+            "tags": [
+              "p",
+              "br",
+              "strong",
+              "em",
+              "code"
+            ],
+            "description": "The text displayed to the end user. OPTIONAL",
+            "optional": true
+          }
+
+        ]  
+      }
+
+    ]
   }
 ]
