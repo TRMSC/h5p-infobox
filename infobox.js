@@ -7,12 +7,16 @@ H5P.Infobox = (function ($) {
    * @function Constructor
    */
   function Constructor(options, id) {
+    H5P.EventDispatcher.call(this); //CORRECT?
     this.options = $.extend(true, {}, {
       content: null,
       image: null
     }, options);
     this.id = id;
   };
+
+  Constructor.prototype = Object.create(H5P.EventDispatcher.prototype); //CORRECT?
+  Constructor.prototype.constructor = Constructor; //CORRECT?
  
   /**
    * @function
@@ -74,7 +78,11 @@ H5P.Infobox = (function ($) {
       if (feedback == 'enabled') {
         $('.infobox-icon').css('opacity', '1');
         $('.infobox-durationstatus').addClass('infobox-btn');
-        //$('.infobox-durationstatus').attr('onclick', 'showFeedback();'); 
+        let btn = $container.find(' .infobox-btn');
+        btn.click(() => {
+          console.log('check');
+          showFeedback();
+        });
       } else {
         fireXapi();
         return;
@@ -93,6 +101,11 @@ H5P.Infobox = (function ($) {
       $('.h5p-infobox-main').css('display', 'none');
       $('.h5p-infobox-close').css('display', 'block');
       fireXapi();
+      let btn = $container.find(' .infobox-btn');
+      btn.click(() => {
+        console.log('check');
+        //showFeedback();
+      });
     };
 
     /**
@@ -143,4 +156,4 @@ H5P.Infobox = (function ($) {
 
   };
   return Constructor;
-})(H5P.jQuery);
+})(H5P.jQuery, H5P.EventDispatcher);

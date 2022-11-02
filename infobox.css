@@ -19,7 +19,7 @@
   background-color: white;
 }
 .h5p-infobox .h5p-infobox-close {
-  display: none!important;
+  display: none;
 }
 .h5p-infobox .infobox-image-container {
   display: flex;
