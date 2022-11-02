@@ -25,6 +25,7 @@ H5P.Infobox = (function ($) {
    */
   Constructor.prototype.attach = function ($container) {
     var self = this;
+    let finished = false;
     let settings = self.options.end.settings;
     let feedback = self.options.end.feedback;
 
@@ -47,8 +48,10 @@ H5P.Infobox = (function ($) {
      * 
     */
       let tuneRatios = function() {
+        /*
         let h = (window.innerHeight * 0.5) + 'px';
         $('.infobox-image').css('max-height', h);
+        */
       }
 
     /**
@@ -76,11 +79,10 @@ H5P.Infobox = (function ($) {
     */
     let finishActivity = function () {
       if (feedback == 'enabled') {
-        $('.infobox-icon').css('opacity', '1');
-        $('.infobox-durationstatus').addClass('infobox-btn');
-        let btn = $container.find(' .infobox-btn');
+        $container.find('.infobox-icon').css('opacity', '1');
+        $container.find('.infobox-durationstatus').addClass('infobox-btn');
+        let btn = $container.find('.infobox-durationstatus.infobox-btn');
         btn.click(() => {
-          console.log('check');
           showFeedback();
         });
       } else {
@@ -98,14 +100,25 @@ H5P.Infobox = (function ($) {
      * 
     */
     let showFeedback = function() {
-      $('.h5p-infobox-main').css('display', 'none');
-      $('.h5p-infobox-close').css('display', 'block');
+      $container.find('.h5p-infobox-main').css('display', 'none');
+      $container.find('.h5p-infobox-close').css('display', 'block');
       fireXapi();
-      let btn = $container.find(' .infobox-btn');
+      let btn = $container.find('.infobox-backcontainer.infobox-btn');
       btn.click(() => {
-        console.log('check');
-        //showFeedback();
+        showMain();
       });
+    };
+
+    /**
+     * @function showMain
+     * @description show main page
+     * 
+    */
+     let showMain = function() {
+      $container.find('.infobox-durationstatus.infobox-btn').css('animation', 'none');
+      $container.find('.infobox-durationstatus.infobox-btn').css('width', '100%');
+      $container.find('.h5p-infobox-main').css('display', 'block');
+      $container.find('.h5p-infobox-close').css('display', 'none');
     };
 
     /**
@@ -114,11 +127,14 @@ H5P.Infobox = (function ($) {
      * 
     */
      let fireXapi = function () {
-      let xAPIEvent = self.createXAPIEventTemplate('completed');
-      if ( self.options.progress.grade) {
-        self.triggerXAPICompleted(1, 1, true, true);
-      } else {
-        self.triggerXAPICompleted(0, 0, false);
+      if (!finished) {
+        let xAPIEvent = self.createXAPIEventTemplate('completed');
+        if ( self.options.progress.grade) {
+          self.triggerXAPICompleted(1, 1, true, true);
+        } else {
+          self.triggerXAPICompleted(0, 0, false);
+        }
+        finished = true;
       }
     };
 
