@@ -14,9 +14,6 @@ H5P.Infobox = (function ($) {
     }, options);
     this.id = id;
   };
-
-  Constructor.prototype = Object.create(H5P.EventDispatcher.prototype); //CORRECT?
-  Constructor.prototype.constructor = Constructor; //CORRECT?
  
   /**
    * @function
@@ -38,8 +35,8 @@ H5P.Infobox = (function ($) {
      let buildPage = function (content) {
       let introtext = content.introtext ? '<div class="infobox-text">' + content.introtext + '</div>' : "";
       let image = content.image && content.image.path ? '<div class="infobox-image-container"><img class="infobox-image" src="' + H5P.getPath(content.image.path, self.id) + '"></div>' : '';
-      let extentiontext = content.extensiontext ? '<div class="infobox-text">' + content.extensiontext + '</div>' : '';
-      return introtext + image + extentiontext;
+      let extensiontext = content.extensiontext ? '<div class="infobox-text">' + content.extensiontext + '</div>' : '';
+      return introtext + image + extensiontext;
     };
 
     /**
@@ -89,8 +86,7 @@ H5P.Infobox = (function ($) {
     */
     let showFeedback = function() {
       $container.find('.h5p-infobox-main').css('display', 'none');
-      $container.find('.h5p-infobox-close').css('display', 'block');
-      //$('.h5p-iframe').css('height', '0px');
+      $container.find('.h5p-infobox-close').css('display', 'flex');
       fireXapi();
       if (settings.return) {
         let btn = $container.find('.infobox-backcontainer.infobox-btn');
@@ -108,7 +104,7 @@ H5P.Infobox = (function ($) {
      let showMain = function() {
       $container.find('.infobox-durationstatus.infobox-btn').css('animation', 'none');
       $container.find('.infobox-durationstatus.infobox-btn').css('width', '100%');
-      $container.find('.h5p-infobox-main').css('display', 'block');
+      $container.find('.h5p-infobox-main').css('display', 'flex');
       $container.find('.h5p-infobox-close').css('display', 'none');
     };
 
@@ -134,12 +130,11 @@ H5P.Infobox = (function ($) {
      * @description Tune aspect ratios
      * 
     */
-     let tuneRatios = function() {
-      /*
-      let h = (window.innerHeight * 0.5) + 'px';
-      $('.infobox-image').css('max-height', h);
-      */
-    }
+    let tuneRatios = function() {
+      // let h = (window.innerHeight * 0.5) + 'px';
+      // $('.infobox-image').css('max-height', h);
+      // Tuning is actually not needed
+    };
 
     /**
      * @event
@@ -168,6 +163,17 @@ H5P.Infobox = (function ($) {
       let close = '<div class="h5p-infobox-container h5p-infobox-close">' + header + buildPage(self.options.end.content) + back + '</div>';
       $container.append(main + close);
 
+      // Adjust layout
+      let hm = $container.find('.h5p-infobox-main').height();
+      let hc = $container.find('.h5p-infobox-close').height();
+      let hf = Math.max(hm, hc) + 22 + 'px';
+      $container.height(hf);
+      $container.css('min-height', hf);
+      $container.css('display', 'flex');
+
+      // Hide closing page
+      $container.find('.h5p-infobox-close').css('display', 'none');
+
       checkTime (progress);
       tuneRatios();
 
@@ -175,4 +181,4 @@ H5P.Infobox = (function ($) {
 
   };
   return Constructor;
-})(H5P.jQuery, H5P.EventDispatcher);
+})(H5P.jQuery);
