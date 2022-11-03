@@ -20,10 +20,12 @@
   align-items: center;
 }
 .h5p-infobox .infobox-fit .infobox-image-container {
-  height: 100%;
+  /*height: 100%;*/
+  overflow: auto;
 }
 .h5p-infobox .infobox-fit .infobox-content {
   display: flex;
+  flex-direction: column;
 }
 .h5p-infobox .infobox-scroll .infobox-image-container {
   height: auto;
@@ -74,9 +76,6 @@
   font-weight: bold;
   line-height: 24px;
   text-align: center;
-}
-.h5p-infobox-close {
-  display: none;
 }
 .infobox-durationcontainer,
 .infobox-backcontainer {
