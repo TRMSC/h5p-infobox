@@ -129,7 +129,7 @@ H5P.Infobox = (function ($) {
      * @description show main page
      * 
     */
-     let showMain = function() {
+    let showMain = function() {
       $container.find('.infobox-durationstatus.infobox-btn').css('animation', 'none');
       $container.find('.infobox-durationstatus.infobox-btn').css('width', '100%');
       $container.find('.h5p-infobox-main').css('display', 'flex');
@@ -141,7 +141,7 @@ H5P.Infobox = (function ($) {
      * @description triggering xAPI
      * 
     */
-     let fireXapi = function () {
+    let fireXapi = function () {
       if (!finished) {
         let xAPIEvent = self.createXAPIEventTemplate('completed');
         if ( self.options.progress.grade) {
