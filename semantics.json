@@ -49,6 +49,23 @@
         ],
         "description": "The text displayed to the end user. OPTIONAL",
         "optional": true
+      },
+      {
+        "name": "display",
+        "type": "select",
+        "label": "Display",
+        "description": "Determine how the content is presented.",
+        "default": "fit",
+        "options": [
+          {
+            "value": "fit",
+            "label": "Fit content to available space"
+          },
+          {
+            "value": "scroll",
+            "label": "Present content with full dimensions by adding a scrollbar"
+          }
+        ]
       }
     ]
   },
@@ -209,6 +226,23 @@
             ],
             "description": "The text displayed to the end user. OPTIONAL",
             "optional": true
+          },
+          {
+            "name": "display",
+            "type": "select",
+            "label": "Display",
+            "description": "Determine how the content is presented.",
+            "default": "fit",
+            "options": [
+              {
+                "value": "fit",
+                "label": "Fit content to available space"
+              },
+              {
+                "value": "scroll",
+                "label": "Present content with full dimensions by adding a scrollbar"
+              }
+            ]
           }
 
         ]  
