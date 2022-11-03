@@ -23,6 +23,8 @@ H5P.Infobox = (function ($) {
   Constructor.prototype.attach = function ($container) {
     var self = this;
     let finished = false;
+    let start = self.options.start;
+    let end = self.options.end.content;
     let settings = self.options.end.settings;
     let feedback = self.options.end.feedback;
     let progress = self.options.progress.duration;
@@ -44,6 +46,18 @@ H5P.Infobox = (function ($) {
       $container.append(main + close);
 
       // Adjust layout
+      let adjust = $container.find('.h5p-infobox-main');
+      if (start.display == 'fit') {
+        adjust.addClass('infobox-fit');
+      } else {
+        adjust.addClass('infobox-scroll');
+      }
+      adjust = $container.find('.h5p-infobox-close');
+      if (end.display == 'fit') {
+        adjust.addClass('infobox-fit');
+      } else {
+        adjust.addClass('infobox-scroll');
+      }
       /*
       let hm = $container.find('.h5p-infobox-main').height();
       let hc = $container.find('.h5p-infobox-close').height();
