@@ -7,6 +7,39 @@
     "optional": true
   },
   {
+    "name": "height",
+    "type": "select",
+    "label": "Height",
+    "description": "Determine the height of the infobox (px).",
+    "default": "400",
+    "options": [
+      {
+        "value": "100",
+        "label": "100"
+      },
+      {
+        "value": "200",
+        "label": "200"
+      },
+      {
+        "value": "300",
+        "label": "300"
+      },
+      {
+        "value": "400",
+        "label": "400"
+      },
+      {
+        "value": "500",
+        "label": "500"
+      },
+      {
+        "value": "600",
+        "label": "600"
+      }
+    ]
+  },
+  {
     "name": "start",
     "type": "group",
     "label": "Start",
