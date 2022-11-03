@@ -1,6 +1,7 @@
 .h5p-infobox {
   justify-content: space-around;
   overflow: auto;
+  display: flex!important;
   flex-direction: column;
 }
 .h5p-infobox-hidden {
@@ -23,19 +24,20 @@
 }
 .h5p-infobox.h5p-fullscreen .h5p-infobox-container {
   justify-content: space-between;
+  height: -webkit-fill-available!important;
 }
 .h5p-infobox.h5p-fullscreen {
   background-color: white;
-  height: inherit!important;
+  height: -webkit-fill-available!important;
 }
 .h5p-infobox .infobox-image-container {
   display: flex;
   justify-content: space-around;
-  height: -webkit-fill-available;
+  /*height: -webkit-fill-available;*/
 }
 .h5p-infobox .infobox-image {
   max-width: 100%;
-  /*height: auto;*/
+  height: auto;
 }
 .h5p-infobox .infobox-header {
   font-family: fantasy;

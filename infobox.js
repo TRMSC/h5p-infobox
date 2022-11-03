@@ -25,10 +25,38 @@ H5P.Infobox = (function ($) {
     let finished = false;
     let settings = self.options.end.settings;
     let feedback = self.options.end.feedback;
+    let progress = self.options.progress.duration;
+    $container.addClass("h5p-infobox");
+
+    /**
+     * @function prepareContent
+     * @description prepare all content the pages
+     * 
+    */
+     let prepareContent = function () {
+
+      // Build framework
+      let header = self.options.header ? '<div class="infobox-header">' + self.options.header + '</div>' : '';
+      let duration = '<div class="infobox-durationcontainer"><div class="infobox-durationstatus" style="animation: progress linear ' + progress + 's"><i class="fa fa-chevron-right infobox-icon"></i></div></div>';
+      let back = (self.options.end.settings.return == 'allowed') ? '<div class="infobox-backcontainer infobox-back infobox-btn"><i class="fa fa-chevron-left infobox-icon"></i></div>' : '';
+      let main = '<div class="h5p-infobox-container h5p-infobox-main">' + header + buildPage(self.options.start) + duration + '</div>';
+      let close = '<div class="h5p-infobox-container h5p-infobox-close">' + header + buildPage(self.options.end.content) + back + '</div>';
+      $container.append(main + close);
+
+      // Adjust layout
+      let hm = $container.find('.h5p-infobox-main').height();
+      let hc = $container.find('.h5p-infobox-close').height();
+      let hf = Math.max(hm, hc) + 22 + 'px';
+      $container.height(hf);
+      $container.css('min-height', hf);
+      $container.find('.h5p-infobox-main').height(hf);
+      $container.find('.h5p-infobox-close').height(hf);
+      $container.css('display', 'flex');
+    };
 
     /**
      * @function buildPage
-     * @description create elements for the page
+     * @description create dom elements for the page
      * @param {Object} content adress of the target page
      * 
     */
@@ -142,41 +170,21 @@ H5P.Infobox = (function ($) {
      * @description tune aspect ratios when window was resized
      * 
     */
-    window.onresize = (event) => {
+     window.onresize = (event) => {
       tuneRatios();
     };
 
     /**
      * @function
-     * @description create dom elements
+     * @description main function going on after promise
      * 
     */
     (function() {
-      $container.addClass("h5p-infobox");
-      let progress = self.options.progress.duration;
-
-      // Build framework
-      let header = self.options.header ? '<div class="infobox-header">' + self.options.header + '</div>' : '';
-      let duration = '<div class="infobox-durationcontainer"><div class="infobox-durationstatus" style="animation: progress linear ' + progress + 's"><i class="fa fa-chevron-right infobox-icon"></i></div></div>';
-      let back = (self.options.end.settings.return == 'allowed') ? '<div class="infobox-backcontainer infobox-back infobox-btn"><i class="fa fa-chevron-left infobox-icon"></i></div>' : '';
-      let main = '<div class="h5p-infobox-container h5p-infobox-main">' + header + buildPage(self.options.start) + duration + '</div>';
-      let close = '<div class="h5p-infobox-container h5p-infobox-close">' + header + buildPage(self.options.end.content) + back + '</div>';
-      $container.append(main + close);
-
-      // Adjust layout
-      let hm = $container.find('.h5p-infobox-main').height();
-      let hc = $container.find('.h5p-infobox-close').height();
-      let hf = Math.max(hm, hc) + 22 + 'px';
-      $container.height(hf);
-      $container.css('min-height', hf);
-      $container.css('display', 'flex');
-
-      // Hide closing page
-      $container.find('.h5p-infobox-close').css('display', 'none');
-
-      checkTime (progress);
-      tuneRatios();
-
+      prepareContent.then(function() {
+        $container.find('.h5p-infobox-close').css('display', 'none');
+        checkTime (progress);
+        tuneRatios();
+      });
     })();
 
   };
