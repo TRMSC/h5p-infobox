@@ -180,11 +180,14 @@ H5P.Infobox = (function ($) {
      * 
     */
     (function() {
-      prepareContent.then(function() {
-        $container.find('.h5p-infobox-close').css('display', 'none');
+      prepareContent();
+      //$container.find('.h5p-infobox-container').css('visibility', 'hidden');
+      setTimeout(function() {
         checkTime (progress);
         tuneRatios();
-      });
+        $container.find('.h5p-infobox-close').css('display', 'none');
+        $container.find('.h5p-infobox-container').css('visibility', 'visible');
+      },300);
     })();
 
   };

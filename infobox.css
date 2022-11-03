@@ -20,7 +20,9 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  /*justify-content: flex-start;*/
   height: inherit;
+  visibility: hidden;
 }
 .h5p-infobox.h5p-fullscreen .h5p-infobox-container {
   justify-content: space-between;
