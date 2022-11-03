@@ -51,18 +51,22 @@ H5P.Infobox = (function ($) {
       let b;
       if (start.display == 'fit') {
         adjust.addClass('infobox-fit');
-        a = $container.find('.h5p-infobox-main .infobox-introtext').height();
-        b = $container.find('.h5p-infobox-main .infobox-extensiontext').height();
-        $container.find('.h5p-infobox-main .infobox-image-container').height(a + b);
+        let check1 = $container.find('.h5p-infobox-main .infobox-introtext');
+        let h1 = check1.length > 0 ? check1.height() : 0;
+        let check2 = $container.find('.h5p-infobox-main .infobox-extensiontext');
+        let h2 = check2.length > 0 ? check2.height() : 0;
+        $container.find('.h5p-infobox-main .infobox-image-container').height(400 - h1 - h2);
       } else {
         adjust.addClass('infobox-scroll');
       }
       adjust = $container.find('.h5p-infobox-close');
       if (end.display == 'fit') {
         adjust.addClass('infobox-fit');
-        a = $container.find('.h5p-infobox-close .infobox-introtext').height();
-        b = $container.find('.h5p-infobox-close .infobox-extensiontext').height();
-        $container.find('.h5p-infobox-close .infobox-image-container').height(a + b);
+        let check3 = $container.find('.h5p-infobox-close .infobox-introtext');
+        let h3 = check3.length > 0 ? check3.height() : 0;
+        let check4 = $container.find('.h5p-infobox-close .infobox-extensiontext');
+        let h4 = check4.length > 0 ? check4.height() : 0;
+        $container.find('.h5p-infobox-close .infobox-image-container').height(400 - h3 - h4);
       } else {
         adjust.addClass('infobox-scroll');
       }
