@@ -41,11 +41,11 @@ H5P.Infobox = (function ($) {
       let header = self.options.header ? '<div class="infobox-header">' + self.options.header + '</div>' : '';
       let duration = '<div class="infobox-durationcontainer"><div class="infobox-durationstatus" style="animation: progress linear ' + progress + 's"><i class="fa fa-chevron-right infobox-icon"></i></div></div>';
       let back = (self.options.end.settings.return == 'allowed') ? '<div class="infobox-backcontainer infobox-back infobox-btn"><i class="fa fa-chevron-left infobox-icon"></i></div>' : '';
-      let main = '<div class="h5p-infobox-container h5p-infobox-main">' + header + buildPage(self.options.start) + duration + '</div>';
-      let close = '<div class="h5p-infobox-container h5p-infobox-close">' + header + buildPage(self.options.end.content) + back + '</div>';
+      let main = '<div class="h5p-infobox-container h5p-infobox-main infobox-' + self.options.height + '">' + header + buildPage(self.options.start) + duration + '</div>';
+      let close = '<div class="h5p-infobox-container h5p-infobox-close + infobox-' + self.options.height + '">' + header + buildPage(self.options.end.content) + back + '</div>';
       $container.append(main + close);
 
-      // Adjust layout
+      // Adjust layout (CODECLEANING IS NECESSARY)
       let adjust = $container.find('.h5p-infobox-main');
       let a;
       let b;
@@ -55,7 +55,7 @@ H5P.Infobox = (function ($) {
         let h1 = check1.length > 0 ? check1.height() : 0;
         let check2 = $container.find('.h5p-infobox-main .infobox-extensiontext');
         let h2 = check2.length > 0 ? check2.height() : 0;
-        $container.find('.h5p-infobox-main .infobox-image-container').height(400 - h1 - h2);
+        $container.find('.h5p-infobox-main .infobox-image-container').height(self.options.height - h1 - h2);
       } else {
         adjust.addClass('infobox-scroll');
       }
@@ -66,7 +66,7 @@ H5P.Infobox = (function ($) {
         let h3 = check3.length > 0 ? check3.height() : 0;
         let check4 = $container.find('.h5p-infobox-close .infobox-extensiontext');
         let h4 = check4.length > 0 ? check4.height() : 0;
-        $container.find('.h5p-infobox-close .infobox-image-container').height(400 - h3 - h4);
+        $container.find('.h5p-infobox-close .infobox-image-container').height(self.options.height - h3 - h4);
       } else {
         adjust.addClass('infobox-scroll');
       }
@@ -204,13 +204,9 @@ H5P.Infobox = (function ($) {
     */
     (function() {
       prepareContent();
-      //$container.find('.h5p-infobox-container').css('visibility', 'hidden');
-      //setTimeout(function() {
-        checkTime (progress);
-        tuneRatios();
-        //$container.find('.h5p-infobox-close').css('display', 'none');
-        $container.find('.h5p-infobox-container').css('visibility', 'visible');
-      //},300);
+      checkTime (progress);
+      tuneRatios();
+      $container.find('.h5p-infobox-container').css('visibility', 'visible');
     })();
 
   };
