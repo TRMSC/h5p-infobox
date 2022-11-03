@@ -33,7 +33,7 @@ H5P.Infobox = (function ($) {
      * @description prepare all content the pages
      * 
     */
-     let prepareContent = function () {
+    let prepareContent = function () {
 
       // Build framework
       let header = self.options.header ? '<div class="infobox-header">' + self.options.header + '</div>' : '';
@@ -60,7 +60,7 @@ H5P.Infobox = (function ($) {
      * @param {Object} content adress of the target page
      * 
     */
-     let buildPage = function (content) {
+    let buildPage = function (content) {
       let introtext = content.introtext ? '<div class="infobox-text">' + content.introtext + '</div>' : "";
       let image = content.image && content.image.path ? '<div class="infobox-image-container"><img class="infobox-image" src="' + H5P.getPath(content.image.path, self.id) + '"></div>' : '';
       let extensiontext = content.extensiontext ? '<div class="infobox-text">' + content.extensiontext + '</div>' : '';
