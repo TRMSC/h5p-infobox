@@ -23,6 +23,8 @@ H5P.Infobox = (function ($) {
   Constructor.prototype.attach = function ($container) {
     var self = this;
     let finished = false;
+    let start = self.options.start;
+    let end = self.options.end.content;
     let settings = self.options.end.settings;
     let feedback = self.options.end.feedback;
     let progress = self.options.progress.duration;
@@ -44,14 +46,33 @@ H5P.Infobox = (function ($) {
       $container.append(main + close);
 
       // Adjust layout
-      let hm = $container.find('.h5p-infobox-main').height();
-      let hc = $container.find('.h5p-infobox-close').height();
-      let hf = Math.max(hm, hc) + 22 + 'px';
-      $container.height(hf);
-      $container.css('min-height', hf);
-      $container.find('.h5p-infobox-main').height(hf);
-      $container.find('.h5p-infobox-close').height(hf);
-      $container.css('display', 'flex');
+      let adjust = $container.find('.h5p-infobox-main');
+      let a;
+      let b;
+      if (start.display == 'fit') {
+        adjust.addClass('infobox-fit');
+        let check1 = $container.find('.h5p-infobox-main .infobox-introtext');
+        let h1 = check1.length > 0 ? check1.height() : 0;
+        let check2 = $container.find('.h5p-infobox-main .infobox-extensiontext');
+        let h2 = check2.length > 0 ? check2.height() : 0;
+        $container.find('.h5p-infobox-main .infobox-image-container').height(400 - h1 - h2);
+      } else {
+        adjust.addClass('infobox-scroll');
+      }
+      adjust = $container.find('.h5p-infobox-close');
+      if (end.display == 'fit') {
+        adjust.addClass('infobox-fit');
+        let check3 = $container.find('.h5p-infobox-close .infobox-introtext');
+        let h3 = check3.length > 0 ? check3.height() : 0;
+        let check4 = $container.find('.h5p-infobox-close .infobox-extensiontext');
+        let h4 = check4.length > 0 ? check4.height() : 0;
+        $container.find('.h5p-infobox-close .infobox-image-container').height(400 - h3 - h4);
+      } else {
+        adjust.addClass('infobox-scroll');
+      }
+
+      // Don't show closing page
+      $container.find('.h5p-infobox-close').css('display', 'none');
     };
 
     /**
@@ -61,10 +82,12 @@ H5P.Infobox = (function ($) {
      * 
     */
     let buildPage = function (content) {
-      let introtext = content.introtext ? '<div class="infobox-text">' + content.introtext + '</div>' : "";
+      let introtext = content.introtext ? '<div class="infobox-text infobox-introtext">' + content.introtext + '</div>' : "";
       let image = content.image && content.image.path ? '<div class="infobox-image-container"><img class="infobox-image" src="' + H5P.getPath(content.image.path, self.id) + '"></div>' : '';
-      let extensiontext = content.extensiontext ? '<div class="infobox-text">' + content.extensiontext + '</div>' : '';
-      return introtext + image + extensiontext;
+      let extensiontext = content.extensiontext ? '<div class="infobox-text infobox-extensiontext">' + content.extensiontext + '</div>' : '';
+      //return 
+      let outcome = '<div class="infobox-content">' + introtext + image + extensiontext + '</div>';
+      return outcome;
     };
 
     /**
@@ -182,12 +205,12 @@ H5P.Infobox = (function ($) {
     (function() {
       prepareContent();
       //$container.find('.h5p-infobox-container').css('visibility', 'hidden');
-      setTimeout(function() {
+      //setTimeout(function() {
         checkTime (progress);
         tuneRatios();
-        $container.find('.h5p-infobox-close').css('display', 'none');
+        //$container.find('.h5p-infobox-close').css('display', 'none');
         $container.find('.h5p-infobox-container').css('visibility', 'visible');
-      },300);
+      //},300);
     })();
 
   };
