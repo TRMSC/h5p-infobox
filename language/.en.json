@@ -30,7 +30,6 @@
   },
   {
     "label": "Start",
-    "name": "start",
     "fields": [
       { 
         "label": "Introduction text", 
