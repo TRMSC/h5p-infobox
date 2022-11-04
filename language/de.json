@@ -1,0 +1,149 @@
+{
+  "semantics": [ 
+    { 
+      "label": "Überschrift", 
+      "description": "Die Überschrift, die Nutzer:innen angezeigt wird. OPTIONAL"
+    },
+    {
+      "label": "Höhe",
+      "description": "Legt die Höhe der Infobox fest (px).",
+      "options": [
+        {
+          "label": "100"
+        },
+        {
+          "label": "200"
+        },
+        {
+          "label": "300"
+        },
+        {
+          "label": "400"
+        },
+        {
+          "label": "500"
+        },
+        {
+          "label": "600"
+        }
+      ]
+    },
+    {
+      "label": "Start",
+      "fields": [
+        { 
+          "label": "Einführungstext", 
+          "description": "Der Text wird Nutzer:innen angezeigt. OPTIONAL"
+        },
+        {
+          "label": "Bild",
+          "description": "Das Bild, das Nutzer:innen sehen. OPTIONAL"
+        },
+        { 
+          "label": "Erweiterungstext", 
+          "description": "Der Text wird Nutzer:innen angezeigt. OPTIONAL"
+        },
+        {
+          "label": "Anzeige",
+          "description": "Bestimmt, wie der Inhalt dargestellt wird.",
+          "options": [
+            {
+              "label": "Inhalt an den verfügbaren Platz anpassen"
+            },
+            {
+              "label": "Scrollbar hinzufügen, um Inhalt vergrößert anzuzeigen"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Ablauf",
+      "fields": [
+        {
+          "label": "Zeitspanne für die Betrachtung (Sekunden)",
+          "description": "Stellt die Zeitspanne für den animierten Fortschrittsbalken ein."
+        },
+        {
+          "label": "Bewertung zum Aktivitätsabschluss hinzufügen",
+          "description": "Nutzer:innen erhalten eine Bewertung mit einem Ergebnis von 1 anstelle eines einfachen Aktivitätsabschlusses."
+        }
+      ]
+    },
+    {
+      "label": "Abschluss",
+      "fields": [
+        {
+          "label": "Abschlussseite",
+          "description": "Am Ende eine Abschlussseite anzeigen.",
+          "options": [
+            {
+              "label": "Aktiviert"
+            },
+            {
+              "label": "Deaktiviert"
+            }
+          ]
+        },
+        {
+          "label": "Einstellungen für die Abschlussseite",
+          "fields": [
+            {
+              "label": "Auslöser",
+              "description": "Legt fest, wie die Abschlussseite angesteuert werden soll.",
+              "options": [
+                {
+                  "label": "Automatisch nach Ablauf der Zeit"
+                },
+                {
+                  "label": "Manuell durch Klicken eines Buttons"
+                }
+              ]
+            },
+            {
+              "label": "Zurück zur Startseite",
+              "description": "Möglichkeit, zur Startseite zurückzukehren.",
+              "options": [
+                {
+                  "label": "Aktiviert"
+                },
+                {
+                  "label": "Deaktiviert"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Inhalt der Abschlussseite",
+          "fields": [
+            { 
+              "label": "Einführungstext", 
+              "description": "Der Text wird Nutzer:innen angezeigt. OPTIONAL"
+            },
+            {
+              "label": "Bild",
+              "description": "Das Bild, das Nutzer:innen sehen. OPTIONAL"
+            },
+            { 
+              "label": "Erweiterungstext", 
+              "description": "Der Text wird Nutzer:innen angezeigt. OPTIONAL"
+            },
+            {
+              "label": "Anzeige",
+              "description": "Bestimmt, wie der Inhalt dargestellt wird.",
+              "options": [
+                {
+                  "label": "Inhalt an den verfügbaren Platz anpassen"
+                },
+                {
+                  "label": "Scrollbar hinzufügen, um Inhalt vergrößert anzuzeigen"
+                }
+              ]
+            }
+          ]  
+        }
+      ]
+    }
+  ]
+}
