@@ -1,0 +1,158 @@
+[ 
+  { 
+    "label": "Header", 
+    "description": "The header displayed to the end user. OPTIONAL"
+  },
+  {
+    "label": "Height",
+    "description": "Determine the height of the infobox (px).",
+    "default": "400",
+    "options": [
+      {
+        "label": "100"
+      },
+      {
+        "label": "200"
+      },
+      {
+        "label": "300"
+      },
+      {
+        "label": "400"
+      },
+      {
+        "label": "500"
+      },
+      {
+        "label": "600"
+      }
+    ]
+  },
+  {
+    "label": "Start",
+    "name": "start",
+    "fields": [
+      { 
+        "label": "Introduction text", 
+        "description": "The text displayed to the end user. OPTIONAL"
+      },
+      {
+        "label": "Image",
+        "description": "The image displayed to the end user. OPTIONAL"
+      },
+      { 
+        "label": "Extension text", 
+        "description": "The text displayed to the end user. OPTIONAL"
+      },
+      {
+        "label": "Display",
+        "description": "Determine how the content is presented.",
+        "default": "fit",
+        "options": [
+          {
+            "value": "fit",
+            "label": "Fit content to available space"
+          },
+          {
+            "value": "scroll",
+            "label": "Present content with full dimensions by adding a scrollbar"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Progress",
+    "fields": [
+      {
+        "label": "Duration for viewing information (seconds)",
+        "description": "Sets the duration for animating progressbar.",
+        "default": 10
+      },
+      {
+        "label": "Add grade to activity completion",
+        "description": "End user will get a grade with a score of 1 instead of a simple completion status.",
+        "default": true
+      }
+    ]
+  },
+  {
+    "label": "End",
+    "fields": [
+      {
+        "label": "Closing page",
+        "description": "Show closing page after finishing.",
+        "default": "disabled",
+        "options": [
+          {
+            "label": "Enabled"
+          },
+          {
+            "label": "Disabled"
+          }
+        ]
+      },
+      {
+        "label": "Settings for the closing page",
+        "fields": [
+          {
+            "label": "Trigger",
+            "description": "Determine how the closing page should be triggered.",
+            "default": "auto",
+            "options": [
+              {
+                "label": "Automatically after duration"
+              },
+              {
+                "label": "Manually by clicking a button"
+              }
+            ]
+          },
+          {
+            "label": "Return to the content",
+            "description": "Possibility to go back to the main page.",
+            "default": "allowed",
+            "options": [
+              {
+                "label": "Allowed"
+              },
+              {
+                "label": "Forbidden"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Content of the closing page",
+        "fields": [
+          { 
+            "label": "Introduction text", 
+            "description": "The text displayed to the end user. OPTIONAL"
+          },
+          {
+            "label": "Image",
+            "description": "The image displayed to the end user. OPTIONAL"
+          },
+          { 
+            "label": "Extension text", 
+            "description": "The text displayed to the end user. OPTIONAL"
+          },
+          {
+            "label": "Display",
+            "description": "Determine how the content is presented.",
+            "default": "fit",
+            "options": [
+              {
+                "label": "Fit content to available space"
+              },
+              {
+                "label": "Present content with full dimensions by adding a scrollbar"
+              }
+            ]
+          }
+        ]  
+      }
+    ]
+  }
+]
