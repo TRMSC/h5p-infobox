@@ -1,16 +1,16 @@
 [ 
   { 
     "label": "Header", 
+    "description": "The header displayed to the end user. OPTIONAL",
     "name": "header", 
     "type": "text", 
-    "description": "The header displayed to the end user. OPTIONAL",
     "optional": true
   },
   {
-    "name": "height",
-    "type": "select",
     "label": "Height",
     "description": "Determine the height of the infobox (px).",
+    "name": "height",
+    "type": "select",
     "default": "400",
     "options": [
       {
@@ -40,14 +40,15 @@
     ]
   },
   {
+    "label": "Start",
     "name": "start",
     "type": "group",
-    "label": "Start",
     "expanded": true,
     "importance": "high",
     "fields": [
       { 
         "label": "Introduction text", 
+        "description": "The text displayed to the end user. OPTIONAL",
         "name": "introtext", 
         "type": "text", 
         "widget": "html",
@@ -58,18 +59,18 @@
           "em",
           "code"
         ],
-        "description": "The text displayed to the end user. OPTIONAL",
         "optional": true
       },
       {
         "label": "Image",
+        "description": "The image displayed to the end user. OPTIONAL",
         "name": "image",
         "type": "image",
-        "description": "The image displayed to the end user. OPTIONAL",
         "optional": true
       },
       { 
         "label": "Extension text", 
+        "description": "The text displayed to the end user. OPTIONAL",
         "name": "extensiontext", 
         "type": "text", 
         "widget": "html",
@@ -80,14 +81,13 @@
           "em",
           "code"
         ],
-        "description": "The text displayed to the end user. OPTIONAL",
         "optional": true
       },
       {
-        "name": "display",
-        "type": "select",
         "label": "Display",
         "description": "Determine how the content is presented.",
+        "name": "display",
+        "type": "select",
         "default": "fit",
         "options": [
           {
@@ -103,16 +103,16 @@
     ]
   },
   {
+    "label": "Progress",
     "name": "progress",
     "type": "group",
-    "label": "Progress",
     "expanded": true,
     "importance": "high",
     "fields": [
       {
         "label": "Duration for viewing information (seconds)",
-        "name": "duration",
         "description": "Sets the duration for animating progressbar.",
+        "name": "duration",
         "type": "number",
         "default": 10,
         "min": 0,
@@ -120,27 +120,26 @@
       },
       {
         "label": "Add grade to activity completion",
-        "name": "grade",
         "description": "End user will get a grade with a score of 1 instead of a simple completion status.",
+        "name": "grade",
         "type": "boolean",
         "default": true,
         "optional": true
       }
     ]
   },
-
   {
+    "label": "End",
     "name": "end",
     "type": "group",
-    "label": "End",
     "expanded": true,
     "importance": "high",
     "fields": [
       {
-        "name": "feedback",
-        "type": "select",
         "label": "Closing page",
         "description": "Show closing page after finishing.",
+        "name": "feedback",
+        "type": "select",
         "default": "disabled",
         "options": [
           {
@@ -154,9 +153,9 @@
         ]
       },
       {
+        "label": "Settings for the closing page",
         "name": "settings",
         "type": "group",
-        "label": "Settings for the closing page",
         "expanded": true,
         "importance": "low",
         "widget": "showWhen",
@@ -171,10 +170,10 @@
         },
         "fields": [
           {
-            "name": "trigger",
-            "type": "select",
             "label": "Trigger",
             "description": "Determine how the closing page should be triggered.",
+            "name": "trigger",
+            "type": "select",
             "default": "auto",
             "options": [
               {
@@ -188,28 +187,28 @@
             ]
           },
           {
+            "label": "Return to the main page",
+            "description": "Possibility to go back to the main page.",
             "name": "return",
             "type": "select",
-            "label": "Return to the content",
-            "description": "Possibility to go back to the main page.",
             "default": "allowed",
             "options": [
               {
                 "value": "allowed",
-                "label": "Allowed"
+                "label": "Enabled"
               },
               {
                 "value": "forbidden",
-                "label": "Forbidden"
+                "label": "Disabled"
               }
             ]
           }
         ]
       },
       {
+        "label": "Content of the closing page",
         "name": "content",
         "type": "group",
-        "label": "Content of the closing page",
         "expanded": true,
         "importance": "low",
         "widget": "showWhen",
@@ -225,6 +224,7 @@
         "fields": [
           { 
             "label": "Introduction text", 
+            "description": "The text displayed to the end user. OPTIONAL",
             "name": "introtext", 
             "type": "text", 
             "widget": "html",
@@ -235,18 +235,18 @@
               "em",
               "code"
             ],
-            "description": "The text displayed to the end user. OPTIONAL",
             "optional": true
           },
           {
             "label": "Image",
+            "description": "The image displayed to the end user. OPTIONAL",
             "name": "image",
             "type": "image",
-            "description": "The image displayed to the end user. OPTIONAL",
             "optional": true
           },
           { 
             "label": "Extension text", 
+            "description": "The text displayed to the end user. OPTIONAL",
             "name": "extensiontext", 
             "type": "text", 
             "widget": "html",
@@ -257,14 +257,13 @@
               "em",
               "code"
             ],
-            "description": "The text displayed to the end user. OPTIONAL",
             "optional": true
           },
           {
-            "name": "display",
-            "type": "select",
             "label": "Display",
             "description": "Determine how the content is presented.",
+            "name": "display",
+            "type": "select",
             "default": "fit",
             "options": [
               {
@@ -277,10 +276,8 @@
               }
             ]
           }
-
         ]  
       }
-
     ]
   }
 ]
