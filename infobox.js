@@ -16,9 +16,10 @@ H5P.Infobox = (function ($) {
   };
  
   /**
-   * @function
+   * Attach function called by H5P framework to insert H5P content into page
+   * 
+   * @function attach
    * @param {jQuery} $container
-   * @description attach function called by H5P framework to insert H5P content into page
    */
   Constructor.prototype.attach = function ($container) {
     var self = this;
@@ -31,8 +32,9 @@ H5P.Infobox = (function ($) {
     $container.addClass("h5p-infobox");
 
     /**
+     * Prepare the pages content trees
+     * 
      * @function prepareContent
-     * @description prepare all content the pages
      * 
     */
     let prepareContent = function () {
@@ -41,8 +43,8 @@ H5P.Infobox = (function ($) {
       let header = self.options.header ? '<div class="infobox-header">' + self.options.header + '</div>' : '';
       let duration = '<div class="infobox-durationcontainer"><div class="infobox-durationstatus" style="animation: progress linear ' + progress + 's"><i class="fa fa-chevron-right infobox-icon"></i></div></div>';
       let back = (self.options.end.settings.return == 'allowed') ? '<div class="infobox-backcontainer infobox-back infobox-btn"><i class="fa fa-chevron-left infobox-icon"></i></div>' : '';
-      let main = '<div class="h5p-infobox-container h5p-infobox-main infobox-' + self.options.height + '">' + header + buildPage(self.options.start) + duration + '</div>';
-      let close = '<div class="h5p-infobox-container h5p-infobox-close + infobox-' + self.options.height + '">' + header + buildPage(self.options.end.content) + back + '</div>';
+      let main = '<div class="h5p-infobox-container h5p-infobox-main infobox-' + self.options.height + '">' + header + handleInput(self.options.start) + duration + '</div>';
+      let close = '<div class="h5p-infobox-container h5p-infobox-close + infobox-' + self.options.height + '">' + header + handleInput(self.options.end.content) + back + '</div>';
       $container.append(main + close);
 
       // Adjust layout (CODECLEANING IS NECESSARY)
@@ -76,24 +78,25 @@ H5P.Infobox = (function ($) {
     };
 
     /**
-     * @function buildPage
-     * @description create dom elements for the page
+     * Handle input by building their dom elements
+     * 
+     * @function handleInput
      * @param {Object} content adress of the target page
      * 
     */
-    let buildPage = function (content) {
+    let handleInput = function (content) {
       let introtext = content.introtext ? '<div class="infobox-text infobox-introtext">' + content.introtext + '</div>' : "";
       let image = content.image && content.image.path ? '<div class="infobox-image-container"><img class="infobox-image" src="' + H5P.getPath(content.image.path, self.id) + '"></div>' : '';
       let extensiontext = content.extensiontext ? '<div class="infobox-text infobox-extensiontext">' + content.extensiontext + '</div>' : '';
-      //return 
       let outcome = '<div class="infobox-content">' + introtext + image + extensiontext + '</div>';
       return outcome;
     };
 
     /**
+     * Check and handle the entered time
+     * 
      * @function checkTime
      * @param {number} progress
-     * @description improve timer
      * 
      */
      let checkTime = function(progress) {
@@ -109,8 +112,9 @@ H5P.Infobox = (function ($) {
     };
 
     /**
+     * Finish activity by triggering xAPI
+     * 
      * @function finishActivity
-     * @description finishing activity by triggering xAPI
      * 
     */
     let finishActivity = function () {
@@ -119,23 +123,24 @@ H5P.Infobox = (function ($) {
         $container.find('.infobox-durationstatus').addClass('infobox-btn');
         let btn = $container.find('.infobox-durationstatus.infobox-btn');
         btn.click(() => {
-          showFeedback();
+          showClosing();
         });
       } else {
         fireXapi();
         return;
       }
       if (settings.trigger !== 'manual') {
-        showFeedback();
+        showClosing();
       } 
     };
 
     /**
-     * @function showFeedback
-     * @description show closing page
+     * Switch to the closing page and handle their actions
+     * 
+     * @function showClosing
      * 
     */
-    let showFeedback = function() {
+    let showClosing = function() {
       $container.find('.h5p-infobox-main').css('display', 'none');
       $container.find('.h5p-infobox-close').css('display', 'flex');
       fireXapi();
@@ -148,8 +153,9 @@ H5P.Infobox = (function ($) {
     };
 
     /**
+     * Show main after switching from closing page
+     * 
      * @function showMain
-     * @description show main page
      * 
     */
     let showMain = function() {
@@ -160,8 +166,9 @@ H5P.Infobox = (function ($) {
     };
 
     /**
+     * Triggering xAPI if it hasn't happened before
+     * 
      * @function fireXapi
-     * @description triggering xAPI
      * 
     */
     let fireXapi = function () {
@@ -177,20 +184,23 @@ H5P.Infobox = (function ($) {
     };
 
     /**
+     * Tune aspect ratios
+     * ACTUALLY NOT NEEDED
+     * 
      * @function tuneRatios
-     * @description Tune aspect ratios
      * 
     */
     let tuneRatios = function() {
       // let h = (window.innerHeight * 0.5) + 'px';
       // $('.infobox-image').css('max-height', h);
-      // Tuning is actually not needed
     };
 
     /**
+     * Tune aspect ratios when window was resized
+     * OPENS THE ACTUALLY UNFILLED TUNERATIOS FUNCTION
+     * 
      * @event
      * @fires onresize
-     * @description tune aspect ratios when window was resized
      * 
     */
      window.onresize = (event) => {
@@ -198,8 +208,9 @@ H5P.Infobox = (function ($) {
     };
 
     /**
+     * Main function for triggering next steps
+     * 
      * @function
-     * @description main function going on after promise
      * 
     */
     (function() {
