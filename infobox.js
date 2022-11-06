@@ -7,7 +7,7 @@ H5P.Infobox = (function ($) {
    * @function Constructor
    */
   function Constructor(options, id) {
-    H5P.EventDispatcher.call(this); //CORRECT?
+    //H5P.EventDispatcher.call(this); //CORRECT?
     this.options = $.extend(true, {}, {
       content: null,
       image: null
@@ -184,30 +184,6 @@ H5P.Infobox = (function ($) {
     };
 
     /**
-     * Tune aspect ratios
-     * ACTUALLY NOT NEEDED
-     * 
-     * @function tuneRatios
-     * 
-    */
-    const tuneRatios = function() {
-      // let h = (window.innerHeight * 0.5) + 'px';
-      // $('.infobox-image').css('max-height', h);
-    };
-
-    /**
-     * Tune aspect ratios when window was resized
-     * OPENS THE ACTUALLY UNFILLED TUNERATIOS FUNCTION
-     * 
-     * @event
-     * @fires onresize
-     * 
-    */
-     window.onresize = (event) => {
-      tuneRatios();
-    };
-
-    /**
      * Main function for triggering next steps
      * 
      * @function
@@ -216,7 +192,6 @@ H5P.Infobox = (function ($) {
     (function() {
       prepareContent();
       checkTime (progress);
-      tuneRatios();
       $container.find('.h5p-infobox-container').css('visibility', 'visible');
     })();
 
