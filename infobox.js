@@ -172,7 +172,6 @@ H5P.Infobox = (function ($) {
     */
     const fireXapi = function () {
       if (!finished) {
-        let xAPIEvent = self.createXAPIEventTemplate('completed');
         if ( self.options.progress.grade) {
           self.triggerXAPICompleted(1, 1, true, true);
         } else {
