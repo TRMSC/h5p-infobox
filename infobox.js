@@ -1,5 +1,5 @@
 "use-strict";
-var H5P = H5P || {};
+let H5P = H5P || {};
  
 H5P.Infobox = (function ($) {
 
@@ -22,7 +22,7 @@ H5P.Infobox = (function ($) {
    * @param {jQuery} $container
    */
   Constructor.prototype.attach = function ($container) {
-    var self = this;
+    let self = this;
     let finished = false;
     let start = self.options.start;
     let end = self.options.end.content;
@@ -100,8 +100,8 @@ H5P.Infobox = (function ($) {
      * 
      */
      let checkTime = function(progress) {
-      var time = 0;
-      var interval = setInterval (function(){
+      let time = 0;
+      let interval = setInterval (function(){
         time ++;
         if (time == progress) {
           clearInterval(interval);
