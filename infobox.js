@@ -1,5 +1,5 @@
 "use-strict";
-let H5P = H5P || {};
+var H5P = H5P || {};
  
 H5P.Infobox = (function ($) {
 
@@ -22,7 +22,7 @@ H5P.Infobox = (function ($) {
    * @param {jQuery} $container
    */
   Constructor.prototype.attach = function ($container) {
-    let self = this;
+    var self = this;
     let finished = false;
     let start = self.options.start;
     let end = self.options.end.content;
@@ -37,7 +37,7 @@ H5P.Infobox = (function ($) {
      * @function prepareContent
      * 
     */
-    let prepareContent = function () {
+    const prepareContent = function () {
 
       // Build framework
       let header = self.options.header ? '<div class="infobox-header">' + self.options.header + '</div>' : '';
@@ -84,7 +84,7 @@ H5P.Infobox = (function ($) {
      * @param {Object} content adress of the target page
      * 
     */
-    let handleInput = function (content) {
+    const handleInput = function (content) {
       let introtext = content.introtext ? '<div class="infobox-text infobox-introtext">' + content.introtext + '</div>' : "";
       let image = content.image && content.image.path ? '<div class="infobox-image-container"><img class="infobox-image" src="' + H5P.getPath(content.image.path, self.id) + '"></div>' : '';
       let extensiontext = content.extensiontext ? '<div class="infobox-text infobox-extensiontext">' + content.extensiontext + '</div>' : '';
@@ -99,7 +99,7 @@ H5P.Infobox = (function ($) {
      * @param {number} progress
      * 
      */
-     let checkTime = function(progress) {
+     const checkTime = function(progress) {
       let time = 0;
       let interval = setInterval (function(){
         time ++;
@@ -117,7 +117,7 @@ H5P.Infobox = (function ($) {
      * @function finishActivity
      * 
     */
-    let finishActivity = function () {
+    const finishActivity = function () {
       if (feedback == 'enabled') {
         $container.find('.infobox-icon').css('opacity', '1');
         $container.find('.infobox-durationstatus').addClass('infobox-btn');
@@ -140,7 +140,7 @@ H5P.Infobox = (function ($) {
      * @function showClosing
      * 
     */
-    let showClosing = function() {
+    const showClosing = function() {
       $container.find('.h5p-infobox-main').css('display', 'none');
       $container.find('.h5p-infobox-close').css('display', 'flex');
       fireXapi();
@@ -158,7 +158,7 @@ H5P.Infobox = (function ($) {
      * @function showMain
      * 
     */
-    let showMain = function() {
+    const showMain = function() {
       $container.find('.infobox-durationstatus.infobox-btn').css('animation', 'none');
       $container.find('.infobox-durationstatus.infobox-btn').css('width', '100%');
       $container.find('.h5p-infobox-main').css('display', 'flex');
@@ -171,7 +171,7 @@ H5P.Infobox = (function ($) {
      * @function fireXapi
      * 
     */
-    let fireXapi = function () {
+    const fireXapi = function () {
       if (!finished) {
         let xAPIEvent = self.createXAPIEventTemplate('completed');
         if ( self.options.progress.grade) {
@@ -190,7 +190,7 @@ H5P.Infobox = (function ($) {
      * @function tuneRatios
      * 
     */
-    let tuneRatios = function() {
+    const tuneRatios = function() {
       // let h = (window.innerHeight * 0.5) + 'px';
       // $('.infobox-image').css('max-height', h);
     };
