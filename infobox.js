@@ -7,7 +7,6 @@ H5P.Infobox = (function ($) {
    * @function Constructor
    */
   function Constructor(options, id) {
-    H5P.EventDispatcher.call(this); //CORRECT?
     this.options = $.extend(true, {}, {
       content: null,
       image: null
@@ -37,7 +36,7 @@ H5P.Infobox = (function ($) {
      * @function prepareContent
      * 
     */
-    let prepareContent = function () {
+    const prepareContent = function () {
 
       // Build framework
       let header = self.options.header ? '<div class="infobox-header">' + self.options.header + '</div>' : '';
@@ -84,12 +83,11 @@ H5P.Infobox = (function ($) {
      * @param {Object} content adress of the target page
      * 
     */
-    let handleInput = function (content) {
+    const handleInput = function (content) {
       let introtext = content.introtext ? '<div class="infobox-text infobox-introtext">' + content.introtext + '</div>' : "";
       let image = content.image && content.image.path ? '<div class="infobox-image-container"><img class="infobox-image" src="' + H5P.getPath(content.image.path, self.id) + '"></div>' : '';
       let extensiontext = content.extensiontext ? '<div class="infobox-text infobox-extensiontext">' + content.extensiontext + '</div>' : '';
-      let outcome = '<div class="infobox-content">' + introtext + image + extensiontext + '</div>';
-      return outcome;
+      return '<div class="infobox-content">' + introtext + image + extensiontext + '</div>';
     };
 
     /**
@@ -99,9 +97,9 @@ H5P.Infobox = (function ($) {
      * @param {number} progress
      * 
      */
-     let checkTime = function(progress) {
-      var time = 0;
-      var interval = setInterval (function(){
+     const checkTime = function(progress) {
+      let time = 0;
+      let interval = setInterval (function(){
         time ++;
         if (time == progress) {
           clearInterval(interval);
@@ -117,7 +115,7 @@ H5P.Infobox = (function ($) {
      * @function finishActivity
      * 
     */
-    let finishActivity = function () {
+    const finishActivity = function () {
       if (feedback == 'enabled') {
         $container.find('.infobox-icon').css('opacity', '1');
         $container.find('.infobox-durationstatus').addClass('infobox-btn');
@@ -140,7 +138,7 @@ H5P.Infobox = (function ($) {
      * @function showClosing
      * 
     */
-    let showClosing = function() {
+    const showClosing = function() {
       $container.find('.h5p-infobox-main').css('display', 'none');
       $container.find('.h5p-infobox-close').css('display', 'flex');
       fireXapi();
@@ -158,7 +156,7 @@ H5P.Infobox = (function ($) {
      * @function showMain
      * 
     */
-    let showMain = function() {
+    const showMain = function() {
       $container.find('.infobox-durationstatus.infobox-btn').css('animation', 'none');
       $container.find('.infobox-durationstatus.infobox-btn').css('width', '100%');
       $container.find('.h5p-infobox-main').css('display', 'flex');
@@ -171,40 +169,13 @@ H5P.Infobox = (function ($) {
      * @function fireXapi
      * 
     */
-    let fireXapi = function () {
+    const fireXapi = function () {
       if (!finished) {
-        let xAPIEvent = self.createXAPIEventTemplate('completed');
-        if ( self.options.progress.grade) {
-          self.triggerXAPICompleted(1, 1, true, true);
-        } else {
-          self.triggerXAPICompleted(0, 0, false);
-        }
-        finished = true;
+        self.options.progress.grade 
+            ? self.triggerXAPICompleted(1, 1, true, true) 
+            : self.triggerXAPICompleted(0, 0, false);
+          finished = true;
       }
-    };
-
-    /**
-     * Tune aspect ratios
-     * ACTUALLY NOT NEEDED
-     * 
-     * @function tuneRatios
-     * 
-    */
-    let tuneRatios = function() {
-      // let h = (window.innerHeight * 0.5) + 'px';
-      // $('.infobox-image').css('max-height', h);
-    };
-
-    /**
-     * Tune aspect ratios when window was resized
-     * OPENS THE ACTUALLY UNFILLED TUNERATIOS FUNCTION
-     * 
-     * @event
-     * @fires onresize
-     * 
-    */
-     window.onresize = (event) => {
-      tuneRatios();
     };
 
     /**
@@ -216,7 +187,6 @@ H5P.Infobox = (function ($) {
     (function() {
       prepareContent();
       checkTime (progress);
-      tuneRatios();
       $container.find('.h5p-infobox-container').css('visibility', 'visible');
     })();
 
