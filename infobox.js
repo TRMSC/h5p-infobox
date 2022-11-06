@@ -7,7 +7,6 @@ H5P.Infobox = (function ($) {
    * @function Constructor
    */
   function Constructor(options, id) {
-    //H5P.EventDispatcher.call(this); //CORRECT?
     this.options = $.extend(true, {}, {
       content: null,
       image: null
