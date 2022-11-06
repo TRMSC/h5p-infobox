@@ -88,8 +88,7 @@ H5P.Infobox = (function ($) {
       let introtext = content.introtext ? '<div class="infobox-text infobox-introtext">' + content.introtext + '</div>' : "";
       let image = content.image && content.image.path ? '<div class="infobox-image-container"><img class="infobox-image" src="' + H5P.getPath(content.image.path, self.id) + '"></div>' : '';
       let extensiontext = content.extensiontext ? '<div class="infobox-text infobox-extensiontext">' + content.extensiontext + '</div>' : '';
-      let outcome = '<div class="infobox-content">' + introtext + image + extensiontext + '</div>';
-      return outcome;
+      return '<div class="infobox-content">' + introtext + image + extensiontext + '</div>';
     };
 
     /**
