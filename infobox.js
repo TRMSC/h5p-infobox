@@ -45,8 +45,16 @@ H5P.Infobox = (function ($) {
       let back = (self.options.end.settings.return == 'allowed') ? '<div class="infobox-backcontainer infobox-back infobox-btn"><i class="fa fa-chevron-left infobox-icon"></i></div>' : '';
       let main = '<div class="h5p-infobox-container h5p-infobox-main infobox-' + self.options.height + '">' + header + handleInput(self.options.start) + duration + '</div>';
       let close = '<div class="h5p-infobox-container h5p-infobox-close infobox-' + self.options.height + '">' + header + handleInput(self.options.end.content) + back + '</div>';
-
       $container.append(main + close);
+      
+      /*
+      header = self.options.header ? prepareElements('div', 'infobox-header', self.options.header) : '';
+      duration = prepareElements('div', 'infobox-durationcontainer');
+      durationstatus = prepareElements('div', 'infobox-durationstatus');
+      forwads = prepareElements('i', ['fa', 'fa-chevron-right', 'infobox-icon']);
+      durationstatus.append(forwads);
+      duration.append(durationstatus);
+      */
 
       // Adjust layout (CODECLEANING IS NECESSARY)
       let adjust = $container.find('.h5p-infobox-main');
@@ -76,6 +84,23 @@ H5P.Infobox = (function ($) {
 
       // Don't show closing page
       $container.find('.h5p-infobox-close').css('display', 'none');
+    };
+
+    /**
+     * Create element structures
+     * 
+     * @function prepareElements
+     * @param {string} type
+     * @param {string} classes
+     * @param {string} content
+     * @param {string} attribute
+     * 
+    */
+    const prepareElements = function (type, classes, content, attribute) {
+      let element = document.createElement(type);
+      classes ? element.classList.add(classes) : false;
+      content ? element.textContent(content) : false;
+      return element;
     };
 
     /**
