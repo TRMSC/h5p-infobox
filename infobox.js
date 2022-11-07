@@ -39,11 +39,13 @@ H5P.Infobox = (function ($) {
     const prepareContent = function () {
 
       // Build framework
+      
       let header = self.options.header ? '<div class="infobox-header">' + self.options.header + '</div>' : '';
       let duration = '<div class="infobox-durationcontainer"><div class="infobox-durationstatus" style="animation: progress linear ' + progress + 's"><i class="fa fa-chevron-right infobox-icon"></i></div></div>';
       let back = (self.options.end.settings.return == 'allowed') ? '<div class="infobox-backcontainer infobox-back infobox-btn"><i class="fa fa-chevron-left infobox-icon"></i></div>' : '';
       let main = '<div class="h5p-infobox-container h5p-infobox-main infobox-' + self.options.height + '">' + header + handleInput(self.options.start) + duration + '</div>';
-      let close = '<div class="h5p-infobox-container h5p-infobox-close + infobox-' + self.options.height + '">' + header + handleInput(self.options.end.content) + back + '</div>';
+      let close = '<div class="h5p-infobox-container h5p-infobox-close infobox-' + self.options.height + '">' + header + handleInput(self.options.end.content) + back + '</div>';
+
       $container.append(main + close);
 
       // Adjust layout (CODECLEANING IS NECESSARY)
