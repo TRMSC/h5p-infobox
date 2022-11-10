@@ -21,17 +21,18 @@ H5P.Infobox = (function ($) {
    * @param {jQuery} $container
    */
   Constructor.prototype.attach = function ($container) {
+    
+    // Declare and initialize variables
     var self = this;
     let finished = false;
-    let start = self.options.start;
-    let end = self.options.end.content;
-    let settings = self.options.end.settings;
-    let feedback = self.options.end.feedback;
-    let progress = self.options.progress.duration;
+    const start = self.options.start;
+    const end = self.options.end.content;
+    const settings = self.options.end.settings;
+    const feedback = self.options.end.feedback;
+    const progress = self.options.progress.duration;
     const heightClass = 'infobox-' + self.options.height;
-    $container.addClass("h5p-infobox");
 
-    // NEW
+    // Declare variables
     let main;
     let close;
     let forwards;
@@ -47,8 +48,10 @@ H5P.Infobox = (function ($) {
      * @function buildDom
      * 
     */
-    //const buildDom = function () {
     buildDom = () => {
+
+      // Container
+      $container.addClass("h5p-infobox");
 
       // Header
       let mainheader = self.options.header 
@@ -127,6 +130,7 @@ H5P.Infobox = (function ($) {
       close.style.display = 'none';
       main.style.visibility = 'visible';
       close.style.visibility = 'visible';
+
     };
 
     /**
