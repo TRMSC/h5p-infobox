@@ -50,15 +50,6 @@ H5P.Infobox = (function ($) {
     //const buildDom = function () {
     buildDom = () => {
 
-      // Build framework
-/*
-      let header = self.options.header ? '<div class="infobox-header">' + self.options.header + '</div>' : '';
-      let duration = '<div class="infobox-durationcontainer"><div class="infobox-durationstatus" style="animation: progress linear ' + progress + 's"><i class="fa fa-chevron-right infobox-icon"></i></div></div>';
-      let back = (self.options.end.settings.return == 'allowed') ? '<div class="infobox-backcontainer infobox-back infobox-btn"><i class="fa fa-chevron-left infobox-icon"></i></div>' : '';
-      let main = '<div class="h5p-infobox-container h5p-infobox-main infobox-' + self.options.height + '">' + header + handleInput(self.options.start) + duration + '</div>';
-      let close = '<div class="h5p-infobox-container h5p-infobox-close infobox-' + self.options.height + '">' + header + handleInput(self.options.end.content) + back + '</div>';
-      $container.append(main + close);
-*/      
       // Header
       let mainheader = self.options.header 
         ? prepareElements(
@@ -97,7 +88,6 @@ H5P.Infobox = (function ($) {
         'div', ['infobox-content']
       );
       maincontent.append(inputMain.introtext, inputMain.image, inputMain.extensiontext);
-      //main.append(mainheader, handleInput(self.options.start).content, duration);
       main.append(mainheader, maincontent, duration);
 
       // Close
@@ -108,59 +98,33 @@ H5P.Infobox = (function ($) {
         'div', ['infobox-content']
       );
       closecontent.append(inputClose.introtext, inputClose.image, inputClose.extensiontext);
-      //close.append(closeheader, handleInput(self.options.end.content).content, back);
       close.append(closeheader, closecontent, back);
 
       // Append content
       $container.append(main, close);
 
 
-      // Adjust layout (CODECLEANING IS NECESSARY)
-      //let adjust = $container.find('.h5p-infobox-main');
-      //let a;
-      //let b;
+      // Adjust layout for main page
       if (start.display == 'fit') {
         main.classList.add('infobox-fit');
         let m1 = inputMain.introtext ? inputMain.introtext.offsetHeight : 0;
         let m2 = inputMain.extensiontext ? inputMain.extensiontext.offsetHeight : 0;
         inputMain.image ? inputMain.image.style.height = self.options.height - m1 - m2 + 'px' : false;
-        /*
-        inputMain.image.height = self.options.height - m1 - m2;
-        inputMain.image.style.height = self.options.height - c1 - c2 + 'px';
-        let check1 = $container.find('.h5p-infobox-main .infobox-introtext');
-        let h1 = check1.length > 0 ? check1.height() : 0;
-        let check2 = $container.find('.h5p-infobox-main .infobox-extensiontext');
-        let h2 = check2.length > 0 ? check2.height() : 0;
-        $container.find('.h5p-infobox-main .infobox-image-container').height(self.options.height - h1 - h2);
-        */
       } else {
-        //adjust.addClass('infobox-scroll');
         main.classList.add('infobox-scroll');
       }
-      //adjust = $container.find('.h5p-infobox-close');
+
+      // Adjust layout for closing page
       if (end.display == 'fit') {
-        //adjust.addClass('infobox-fit');
         close.classList.add('infobox-fit');
         let c1 = inputClose.introtext ? inputClose.introtext.offsetHeight : 0;
         let c2 = inputClose.extensiontext ? inputClose.extensiontext.offsetHeight : 0;
         inputClose.image ? inputClose.image.style.height = self.options.height - c1 - c2 + 'px' : false;
-        /*
-        inputClose.image.height = self.options.height - c1 - c2;
-        inputClose.image.offsetHeight = self.options.height - c1 - c2;
-        inputClose.image.style = 'max-height: ' + self.options.height - c1 - c2 + 'px';
-        let check3 = $container.find('.h5p-infobox-close .infobox-introtext');
-        let h3 = check3.length > 0 ? check3.height() : 0;
-        let check4 = $container.find('.h5p-infobox-close .infobox-extensiontext');
-        let h4 = check4.length > 0 ? check4.height() : 0;
-        $container.find('.h5p-infobox-close .infobox-image-container').height(self.options.height - h3 - h4);
-        */
       } else {
-        //adjust.addClass('infobox-scroll');
         close.classList.add('infobox-scroll');
       }
 
       // Make pages visible by not displaying closing page
-      //$container.find('.h5p-infobox-close').css('display', 'none');
       close.style.display = 'none';
       main.style.visibility = 'visible';
       close.style.visibility = 'visible';
@@ -176,7 +140,6 @@ H5P.Infobox = (function ($) {
      * @param {string} attribute
      * 
     */
-    //const prepareElements = function (type, classes, content, attribute) {
     prepareElements = (type, classes, content, attribute) => {
       let element = document.createElement(type);
       if (classes) {
@@ -195,14 +158,7 @@ H5P.Infobox = (function ($) {
      * @param {Object} content adress of the target page
      * 
     */
-    //const handleInput = function (content) {
     handleInput = (content) => {
-/*
-      let introtext = content.introtext ? '<div class="infobox-text infobox-introtext">' + content.introtext + '</div>' : "";
-      let image = content.image && content.image.path ? '<div class="infobox-image-container"><img class="infobox-image" src="' + H5P.getPath(content.image.path, self.id) + '"></div>' : '';
-      let extensiontext = content.extensiontext ? '<div class="infobox-text infobox-extensiontext">' + content.extensiontext + '</div>' : '';
-      return '<div class="infobox-content">' + introtext + image + extensiontext + '</div>';
-*/
       introtext = content.introtext 
         ? prepareElements(
             'div', ['infobox-text', 'infobox-introtext'], content.introtext)
@@ -214,21 +170,15 @@ H5P.Infobox = (function ($) {
           'img', ['infobox-image']);
         imagecontent.setAttribute('src', H5P.getPath(content.image.path, self.id));
         image.append(imagecontent);
-        } else {
+      } else {
           image = '';
           imagecontent = '';
-        }
+      }
       extensiontext = content.extensiontext 
         ? prepareElements(
           'div', ['infobox-text', 'infobox-extensiontext'], content.extensiontext)
         : '';
-      /*
-      content = prepareElements(
-        'div', ['infobox-content']
-      );
-      content.append(introtext, image, extensiontext);
-      //return content;
-      */
+
       return {
         introtext,
         image,
@@ -245,7 +195,6 @@ H5P.Infobox = (function ($) {
      * @param {number} progress
      * 
      */
-    //const checkTime = function(progress) {
     checkTime = () => {
       let time = 0;
       let interval = setInterval (function(){
@@ -264,33 +213,19 @@ H5P.Infobox = (function ($) {
      * @function finishActivity
      * 
     */
-    //const finishActivity = function () {
     finishActivity = () => {
       if (feedback == 'enabled') {
-        //$container.find('.infobox-icon').css('opacity', '1');
-        //$container.find('.infobox-durationstatus').addClass('infobox-btn');
         forwards.style.opacity = '1';
         backwards.style.opacity = '1';
         durationstatus.classList.add('infobox-btn');
-        //let btn = $container.find('.infobox-durationstatus.infobox-btn');
         durationstatus.onclick = (event) => {
           showClosing();
         };
-        /*
-        btn.click(() => {
-          showClosing();
-        });
-        */
       } else {
         fireXapi();
         return;
       }
       settings.trigger !== 'manual' ? showClosing() : false;
-      /*
-      if (settings.trigger !== 'manual') {
-        showClosing();
-      } 
-      */
     };
 
     /**
@@ -299,23 +234,14 @@ H5P.Infobox = (function ($) {
      * @function showClosing
      * 
     */
-    //const showClosing = function() {
     showClosing = () => {
       main.style.display = 'none';
       close.style.display = 'flex';
-      //$container.find('.h5p-infobox-main').css('display', 'none');
-      //$container.find('.h5p-infobox-close').css('display', 'flex');
       fireXapi();
       if (settings.return) {
         back.onclick = (event) => {
           showMain();
         };
-        /*
-        let btn = $container.find('.infobox-backcontainer.infobox-btn');
-        btn.click(() => {
-          showMain();
-        });
-        */
       }
     };
 
@@ -325,18 +251,11 @@ H5P.Infobox = (function ($) {
      * @function showMain
      * 
     */
-    //const showMain = function() {
     showMain = () => {
       durationstatus.style.animation = 'none';
       durationstatus.style.width = '100%';
       main.style.display = 'flex';
       close.style.display = 'none';
-      /*
-      $container.find('.infobox-durationstatus.infobox-btn').css('animation', 'none');
-      $container.find('.infobox-durationstatus.infobox-btn').css('width', '100%');
-      $container.find('.h5p-infobox-main').css('display', 'flex');
-      $container.find('.h5p-infobox-close').css('display', 'none');
-      */
     };
 
     /**
@@ -345,7 +264,6 @@ H5P.Infobox = (function ($) {
      * @function fireXapi
      * 
     */
-    //const fireXapi = function () {
     fireXapi = () => {
       if (!finished) {
         self.options.progress.grade 
@@ -364,9 +282,6 @@ H5P.Infobox = (function ($) {
     (function() {
       buildDom();
       checkTime (progress);
-      //$container.find('.h5p-infobox-container').css('visibility', 'visible');
-      //main.style.visibility = 'visible';
-      //close.style.visibility = 'visible';
     })();
 
   };
