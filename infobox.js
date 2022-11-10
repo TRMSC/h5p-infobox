@@ -74,6 +74,7 @@ H5P.Infobox = (function ($) {
         'i', ['fa', 'fa-chevron-right', 'infobox-icon']);
       durationstatus.append(forwards);
       duration.append(durationstatus);
+      durationstatus.onanimationend = (event) => finishActivity();
 
       // Backbutton
       back = prepareElements(
@@ -190,25 +191,6 @@ H5P.Infobox = (function ($) {
     };
 
     /**
-     * Check and handle the entered time
-     * 
-     * @function checkTime
-     * @param {number} progress
-     * 
-     */
-    checkTime = () => {
-      let time = 0;
-      let interval = setInterval (function(){
-        time ++;
-        if (time === progress) {
-          clearInterval(interval);
-          finishActivity();
-          return;
-        }
-      }, 1000);
-    };
-
-    /**
      * Finish activity by triggering xAPI
      * 
      * @function finishActivity
@@ -275,15 +257,10 @@ H5P.Infobox = (function ($) {
     };
 
     /**
-     * Main function for triggering next steps
-     * 
-     * @function
+     * Start building dom
      * 
     */
-    (function() {
-      buildDom();
-      checkTime (progress);
-    })();
+    buildDom();
 
   };
   return Constructor;
