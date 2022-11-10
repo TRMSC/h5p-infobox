@@ -103,7 +103,6 @@ H5P.Infobox = (function ($) {
       // Append content
       $container.append(main, close);
 
-
       // Adjust layout for main page
       if (start.display == 'fit') {
         main.classList.add('infobox-fit');
@@ -178,14 +177,12 @@ H5P.Infobox = (function ($) {
         ? prepareElements(
           'div', ['infobox-text', 'infobox-extensiontext'], content.extensiontext)
         : '';
-
       return {
         introtext,
         image,
         imagecontent,
         extensiontext
       }
-
     };
 
     /**
