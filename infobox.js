@@ -74,6 +74,7 @@ H5P.Infobox = (function ($) {
         'i', ['fa', 'fa-chevron-right', 'infobox-icon']);
       durationstatus.append(forwards);
       duration.append(durationstatus);
+      durationstatus.onanimationend = (event) => finishActivity();
 
       // Backbutton
       back = prepareElements(
@@ -107,7 +108,7 @@ H5P.Infobox = (function ($) {
       $container.append(main, close);
 
       // Adjust layout for main page
-      if (start.display == 'fit') {
+      if (start.display === 'fit') {
         main.classList.add('infobox-fit');
         let m1 = inputMain.introtext ? inputMain.introtext.offsetHeight : 0;
         let m2 = inputMain.extensiontext ? inputMain.extensiontext.offsetHeight : 0;
@@ -117,7 +118,7 @@ H5P.Infobox = (function ($) {
       }
 
       // Adjust layout for closing page
-      if (end.display == 'fit') {
+      if (end.display === 'fit') {
         close.classList.add('infobox-fit');
         let c1 = inputClose.introtext ? inputClose.introtext.offsetHeight : 0;
         let c2 = inputClose.extensiontext ? inputClose.extensiontext.offsetHeight : 0;
@@ -190,25 +191,6 @@ H5P.Infobox = (function ($) {
     };
 
     /**
-     * Check and handle the entered time
-     * 
-     * @function checkTime
-     * @param {number} progress
-     * 
-     */
-    checkTime = () => {
-      let time = 0;
-      let interval = setInterval (function(){
-        time ++;
-        if (time == progress) {
-          clearInterval(interval);
-          finishActivity();
-          return;
-        }
-      }, 1000);
-    };
-
-    /**
      * Finish activity by triggering xAPI
      * 
      * @function finishActivity
@@ -275,15 +257,10 @@ H5P.Infobox = (function ($) {
     };
 
     /**
-     * Main function for triggering next steps
-     * 
-     * @function
+     * Start building dom
      * 
     */
-    (function() {
-      buildDom();
-      checkTime (progress);
-    })();
+    buildDom();
 
   };
   return Constructor;
