@@ -24,7 +24,7 @@ H5P.Infobox = (function ($) {
   Constructor.prototype.attach = function ($container) {
     
     // Declare and initialize variables
-    var self = this;
+    let self = this;
     let finished = false;
     const start = self.options.start;
     const end = self.options.end.content;
