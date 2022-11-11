@@ -197,7 +197,7 @@ H5P.Infobox = (function ($) {
      * 
     */
     finishActivity = () => {
-      if (feedback == 'enabled') {
+      if (feedback === 'enabled') {
         forwards.style.opacity = '1';
         backwards.style.opacity = '1';
         durationstatus.classList.add('infobox-btn');
