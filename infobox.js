@@ -9,6 +9,7 @@ H5P.Infobox = (function ($) {
    * @class
    * @param options
    * @param id
+   * @function Constructor
    */
   function Constructor(options, id) {
     this.options = $.extend(true, {}, {}, options);
