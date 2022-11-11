@@ -4,26 +4,28 @@ var H5P = H5P || {};
 H5P.Infobox = (function ($) {
 
   /**
+   * Constructor
+   * 
+   * @class
+   * @param options
+   * @param id
    * @function Constructor
    */
   function Constructor(options, id) {
-    this.options = $.extend(true, {}, {
-      content: null,
-      image: null
-    }, options);
+    this.options = $.extend(true, {}, {}, options);
     this.id = id;
   };
  
   /**
    * Attach function called by H5P framework to insert H5P content into page
    * 
-   * @function attach
    * @param {jQuery} $container
+   * @function attach
    */
   Constructor.prototype.attach = function ($container) {
     
     // Declare and initialize variables
-    var self = this;
+    let self = this;
     let finished = false;
     const start = self.options.start;
     const end = self.options.end.content;
@@ -46,7 +48,6 @@ H5P.Infobox = (function ($) {
      * Build the pages content trees
      * 
      * @function buildDom
-     * 
     */
     buildDom = () => {
 
@@ -74,6 +75,8 @@ H5P.Infobox = (function ($) {
         'i', ['fa', 'fa-chevron-right', 'infobox-icon']);
       durationstatus.append(forwards);
       duration.append(durationstatus);
+
+      // Duration finishing event
       durationstatus.onanimationend = (event) => finishActivity();
 
       // Backbutton
@@ -141,10 +144,9 @@ H5P.Infobox = (function ($) {
      * @param {string} type
      * @param {string} classes
      * @param {string} content
-     * @param {string} attribute
-     * 
+     * @returns {HTMLElement} element
     */
-    prepareElements = (type, classes, content, attribute) => {
+    prepareElements = (type, classes, content) => {
       let element = document.createElement(type);
       if (classes) {
         for (let i = 0; i < classes.length; i++) {
@@ -160,7 +162,7 @@ H5P.Infobox = (function ($) {
      * 
      * @function handleInput
      * @param {Object} content adress of the target page
-     * 
+     * @returns {array} 
     */
     handleInput = (content) => {
       introtext = content.introtext 
@@ -194,7 +196,6 @@ H5P.Infobox = (function ($) {
      * Finish activity by triggering xAPI
      * 
      * @function finishActivity
-     * 
     */
     finishActivity = () => {
       if (feedback === 'enabled') {
@@ -215,7 +216,6 @@ H5P.Infobox = (function ($) {
      * Switch to the closing page and handle their actions
      * 
      * @function showClosing
-     * 
     */
     showClosing = () => {
       main.style.display = 'none';
@@ -232,7 +232,6 @@ H5P.Infobox = (function ($) {
      * Show main after switching from closing page
      * 
      * @function showMain
-     * 
     */
     showMain = () => {
       durationstatus.style.animation = 'none';
@@ -245,7 +244,6 @@ H5P.Infobox = (function ($) {
      * Triggering xAPI if it hasn't happened before
      * 
      * @function fireXapi
-     * 
     */
     fireXapi = () => {
       if (!finished) {
