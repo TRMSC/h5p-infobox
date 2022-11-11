@@ -74,6 +74,8 @@ H5P.Infobox = (function ($) {
         'i', ['fa', 'fa-chevron-right', 'infobox-icon']);
       durationstatus.append(forwards);
       duration.append(durationstatus);
+
+      // Duration finishing event
       durationstatus.onanimationend = (event) => finishActivity();
 
       // Backbutton
