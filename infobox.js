@@ -115,7 +115,7 @@ H5P.Infobox = (function ($) {
         main.classList.add('infobox-fit');
         let m1 = inputMain.introtext ? inputMain.introtext.offsetHeight : 0;
         let m2 = inputMain.extensiontext ? inputMain.extensiontext.offsetHeight : 0;
-        inputMain.image ? inputMain.image.style.height = self.options.height - m1 - m2 + 'px' : false;
+        inputMain.image ? inputMain.image.style.maxHeight = self.options.height - m1 - m2 + 'px' : false;
       } else {
         main.classList.add('infobox-scroll');
       }
@@ -125,7 +125,7 @@ H5P.Infobox = (function ($) {
         close.classList.add('infobox-fit');
         let c1 = inputClose.introtext ? inputClose.introtext.offsetHeight : 0;
         let c2 = inputClose.extensiontext ? inputClose.extensiontext.offsetHeight : 0;
-        inputClose.image ? inputClose.image.style.height = self.options.height - c1 - c2 + 'px' : false;
+        inputClose.image ? inputClose.image.style.maxHeight = self.options.height - c1 - c2 + 'px' : false;
       } else {
         close.classList.add('infobox-scroll');
       }
@@ -178,7 +178,6 @@ H5P.Infobox = (function ($) {
         image.append(imagecontent);
       } else {
           image = '';
-          imagecontent = '';
       }
       extensiontext = content.extensiontext 
         ? prepareElements(
@@ -187,7 +186,6 @@ H5P.Infobox = (function ($) {
       return {
         introtext,
         image,
-        imagecontent,
         extensiontext
       }
     };
