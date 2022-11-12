@@ -66,12 +66,15 @@
 }
 .h5p-infobox .infobox-text {
   width: auto;
-  margin: 16px;
+  margin: 10px;
   font-family: sans-serif;
   font-size: 20px;
   font-weight: bold;
   line-height: 24px;
   text-align: center;
+}
+.h5p-infobox .infobox-text p {
+  margin: 5px 0px;
 }
 .infobox-durationcontainer,
 .infobox-backcontainer {
